@@ -1,0 +1,23 @@
+root = true
+
+[*]
+charset = utf-8
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.json{,.dist}]
+indent_size = 2
+
+[*.neon{,.dist}]
+indent_style = tab
+
+[*.{yml,yaml}{,.dist}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab
