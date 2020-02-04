@@ -3,7 +3,6 @@
 [![Continuous Deployment](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Continuous%20Deployment/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 [![Continuous Integration](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Continuous%20Integration/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 
-[![Code Coverage](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin)
 [![Type Coverage](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin/coverage.svg)](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin)
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/Lctrs/psalm-psr-container-plugin?style=flat-square)](https://packagist.org/packages/Lctrs/psalm-psr-container-plugin)
