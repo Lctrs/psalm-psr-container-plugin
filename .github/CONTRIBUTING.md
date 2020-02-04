@@ -16,18 +16,6 @@ $ make coding-standards
 
 to automatically fix coding standard violations.
 
-## Dependency Analysis
-
-We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/ComposerRequireChecker) to prevent the use of unknown symbols in production code.
-
-Run
-
-```
-$ make dependency-analysis
-```
-
-to run a dependency analysis.
-
 ## Static Code Analysis
 
 We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo/psalm`](https://github.com/vimeo/psalm) to statically analyze the code.
@@ -54,7 +42,7 @@ to regenerate the baselines in [`../phpstan-baseline.neon`](../phpstan-baseline.
 
 ## Tests
 
-We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
+We are using [`codeception/codeception`](https://github.com/Codeception/Codeception) to drive the development.
 
 Run
 
@@ -63,18 +51,6 @@ $ make tests
 ```
 
 to run all the tests.
-
-## Mutation Tests
-
-We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
-
-Enable `pcov` or `Xdebug` and run
-
-```
-$ make mutation-tests
-```
-
-to run mutation tests.
 
 ## Extra lazy?
 

@@ -5,8 +5,12 @@
 >
     <arg name="cache" value=".build/php_codesniffer/phpcs-cache"/>
 
-    <rule ref="Doctrine"/>
+    <rule ref="Doctrine">
+        <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
+    </rule>
 
     <file>src/</file>
     <file>test/</file>
+
+    <exclude-pattern>test/_support/_generated</exclude-pattern>
 </ruleset>

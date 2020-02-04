@@ -10,13 +10,16 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
+[*.feature]
+indent_size = 2
+
 [*.json{,.dist}]
 indent_size = 2
 
 [*.neon{,.dist}]
 indent_style = tab
 
-[*.{yml,yaml}{,.dist}]
+[*{,.dist}.{yml,yaml}{,.dist}]
 indent_size = 2
 
 [Makefile]

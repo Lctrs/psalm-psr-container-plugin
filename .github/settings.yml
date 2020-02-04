@@ -15,7 +15,6 @@ branches:
       required_status_checks:
         contexts:
           - "Coding Standards (7.2, locked)"
-          - "Dependency Analysis (7.4, locked)"
           - "Static Code Analysis (7.4, locked)"
           - "Tests (7.2, lowest)"
           - "Tests (7.2, locked)"
@@ -26,10 +25,6 @@ branches:
           - "Tests (7.4, lowest)"
           - "Tests (7.4, locked)"
           - "Tests (7.4, highest)"
-          - "Code Coverage (7.4, locked)"
-          - "Mutation Tests (7.4, locked)"
-          - "codecov/patch"
-          - "codecov/project"
         strict: false
       restrictions: null
 
@@ -70,15 +65,15 @@ repository:
   archived: false
   default_branch: "master"
   delete_branch_on_merge: true
-  description: ":octocat: + :ledger: Provides a GitHub repository template for a PHP library, using GitHub actions."
+  description: "Let Psalm understand better psr11 containers"
   has_downloads: true
   has_issues: true
   has_pages: false
   has_projects: false
   has_wiki: false
-  name: "php-library-skeleton"
+  name: "psalm-psr-container-plugin"
   private: false
 
   # https://developer.github.com/v3/repos/branches/#remove-branch-protection
 
-  topics: "php, library, template, skeleton"
+  topics: "psalm, plugin, psr, psr11, container"
