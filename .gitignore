@@ -1,6 +1,5 @@
-/.build
-/test/*/phpunit.xml
+/.build/
 /vendor/
-/infection.json
+/codeception.yml
 /phpcs.xml
 /phpstan.neon

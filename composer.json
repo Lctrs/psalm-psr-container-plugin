@@ -1,8 +1,18 @@
 {
-  "name": "lctrs/php-library-skeleton",
-  "type": "library",
-  "description": "Provides a GitHub repository template for a PHP library, using GitHub actions.",
-  "homepage": "https://github.com/Lctrs/php-library-skeleton",
+  "name": "lctrs/psalm-psr-container-plugin",
+  "type": "psalm-plugin",
+  "description": "Let Psalm understand better psr11 containers",
+  "keywords": [
+    "php",
+    "code",
+    "inspection",
+    "psr",
+    "psr11",
+    "container",
+    "psalm",
+    "psalm-plugin"
+  ],
+  "homepage": "https://github.com/Lctrs/psalm-psr-container-plugin",
   "license": "MIT",
   "authors": [
     {
@@ -11,39 +21,49 @@
     }
   ],
   "require": {
-    "php": "^7.2.9"
+    "php": "^7.2",
+    "nikic/php-parser": "^4.3.0",
+    "vimeo/psalm": "^3.8.3"
   },
   "require-dev": {
+    "codeception/codeception": "^4.0",
+    "codeception/module-asserts": "^1.1.1",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.2",
-    "ergebnis/test-util": "^0.9.1",
-    "infection/infection": "^0.15.0",
-    "maglnet/composer-require-checker": "^2.1.0",
     "phpstan/extension-installer": "^1.0.3",
     "phpstan/phpstan": "^0.12.8",
     "phpstan/phpstan-deprecation-rules": "^0.12.2",
-    "phpstan/phpstan-phpunit": "^0.12.6",
     "phpstan/phpstan-strict-rules": "^0.12.2",
-    "phpunit/phpunit": "^8.5.2",
-    "psalm/plugin-phpunit": "^0.8.1",
-    "vimeo/psalm": "^3.8.3"
+    "psr/container": "^1.0.0",
+    "weirdan/codeception-psalm-module": "dev-codeception-4"
   },
   "config": {
     "preferred-install": "dist",
     "sort-packages": true
   },
+  "extra": {
+    "psalm": {
+      "pluginClass": "Lctrs\\PsalmPsrContainerPlugin\\Plugin"
+    }
+  },
   "autoload": {
     "psr-4": {
-      "Lctrs\\Library\\": "src/"
+      "Lctrs\\PsalmPsrContainerPlugin\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Lctrs\\Library\\Test\\": "test/"
+      "Lctrs\\PsalmPsrContainerPlugin\\Test\\": "test/_support"
     }
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Lctrs/codeception-psalm-module.git"
+    }
+  ],
   "support": {
-    "issues": "https://github.com/Lctrs/php-library-skeleton/issues",
-    "source": "https://github.com/Lctrs/php-library-skeleton"
+    "issues": "https://github.com/Lctrs/psalm-psr-container-plugin/issues",
+    "source": "https://github.com/Lctrs/psalm-psr-container-plugin"
   }
 }

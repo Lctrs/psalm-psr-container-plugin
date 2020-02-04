@@ -7,7 +7,7 @@ update_configs:
       - "dependency"
     directory: "/"
     package_manager: "github_actions"
-    update_schedule: "daily"
+    update_schedule: "monthly"
 
   - automerged_updates:
       - match:
@@ -19,5 +19,5 @@ update_configs:
       - "dependency"
     directory: "/"
     package_manager: "php:composer"
-    update_schedule: "live"
+    update_schedule: "monthly"
     version_requirement_updates: "increase_versions"

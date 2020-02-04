@@ -8,4 +8,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1902cc2...master`][1902cc2...master].
 
-[1902cc2...master]: https://github.com/Lctrs/php-library-skeleton/compare/1902cc2...master
+[1902cc2...master]: https://github.com/Lctrs/psalm-psr-container-plugin/compare/1902cc2...master
