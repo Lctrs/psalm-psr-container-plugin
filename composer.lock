@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e166259661e533264b945c4e13ea5aa2",
+    "content-hash": "aa53a647221b974449758db483c09be8",
     "packages": [
         {
             "name": "amphp/amp",
@@ -776,41 +776,41 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.4",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "f512001679f37e6a042b51897ed24a2f05eba656"
+                "reference": "91c294166c38d8c0858a86fad76d8c14dc1144c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/f512001679f37e6a042b51897ed24a2f05eba656",
-                "reference": "f512001679f37e6a042b51897ed24a2f05eba656",
+                "url": "https://api.github.com/repos/symfony/console/zipball/91c294166c38d8c0858a86fad76d8c14dc1144c8",
+                "reference": "91c294166c38d8c0858a86fad76d8c14dc1144c8",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.5",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php73": "^1.8",
                 "symfony/service-contracts": "^1.1|^2"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.4",
-                "symfony/event-dispatcher": "<4.3|>=5",
+                "symfony/dependency-injection": "<4.4",
+                "symfony/event-dispatcher": "<4.4",
                 "symfony/lock": "<4.4",
-                "symfony/process": "<3.3"
+                "symfony/process": "<4.4"
             },
             "provide": {
                 "psr/log-implementation": "1.0"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "^3.4|^4.0|^5.0",
-                "symfony/dependency-injection": "^3.4|^4.0|^5.0",
-                "symfony/event-dispatcher": "^4.3",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/event-dispatcher": "^4.4|^5.0",
                 "symfony/lock": "^4.4|^5.0",
-                "symfony/process": "^3.4|^4.0|^5.0",
-                "symfony/var-dumper": "^4.3|^5.0"
+                "symfony/process": "^4.4|^5.0",
+                "symfony/var-dumper": "^4.4|^5.0"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -821,7 +821,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -848,7 +848,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-25T12:44:29+00:00"
+            "time": "2020-01-25T15:56:29+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1027,20 +1027,20 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.8",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf"
+                "reference": "144c5e51266b281231e947b51223ba14acf1a749"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
-                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/144c5e51266b281231e947b51223ba14acf1a749",
+                "reference": "144c5e51266b281231e947b51223ba14acf1a749",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.5",
                 "psr/container": "^1.0"
             },
             "suggest": {
@@ -1049,7 +1049,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1081,7 +1081,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-10-14T12:27:06+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
             "name": "vimeo/psalm",
@@ -2227,6 +2227,162 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+            "name": "infection/infection",
+            "version": "0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/infection/infection.git",
+                "reference": "1d79de53cbc1dfa902e1ea4afba6c3f0214d5224"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/infection/infection/zipball/1d79de53cbc1dfa902e1ea4afba6c3f0214d5224",
+                "reference": "1d79de53cbc1dfa902e1ea4afba6c3f0214d5224",
+                "shasum": ""
+            },
+            "require": {
+                "composer/xdebug-handler": "^1.3.3",
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "justinrainbow/json-schema": "^5.2",
+                "nikic/php-parser": "^4.2.2",
+                "ocramius/package-versions": "^1.2",
+                "php": "^7.2.9",
+                "pimple/pimple": "^3.2",
+                "sebastian/diff": "^3.0.2",
+                "seld/jsonlint": "^1.7",
+                "symfony/console": "^3.4.29 || ^4.0 || ^5.0",
+                "symfony/filesystem": "^3.4.29 || ^4.0 || ^5.0",
+                "symfony/finder": "^3.4.29 || ^4.0 || ^5.0",
+                "symfony/process": "^3.4.29 || ^4.0 || ^5.0",
+                "symfony/yaml": "^3.4.29 || ^4.0 || ^5.0",
+                "thecodingmachine/safe": "^0.1.16",
+                "webmozart/assert": "^1.3",
+                "webmozart/path-util": "^2.3"
+            },
+            "conflict": {
+                "symfony/console": "=4.1.5"
+            },
+            "require-dev": {
+                "helmich/phpunit-json-assert": "^3.0",
+                "phpunit/phpunit": "^8.2.5 <8.4",
+                "symfony/phpunit-bridge": "^4.3.4 || ^5.0"
+            },
+            "bin": [
+                "bin/infection"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Infection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maks Rafalko",
+                    "email": "maks.rafalko@gmail.com",
+                    "homepage": "https://twitter.com/maks_rafalko"
+                },
+                {
+                    "name": "Oleg Zhulnev",
+                    "homepage": "https://github.com/sidz"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "homepage": "https://github.com/BackEndTea"
+                },
+                {
+                    "name": "Théo FIDRY",
+                    "email": "theo.fidry@gmail.com",
+                    "homepage": "https://twitter.com/tfidry"
+                },
+                {
+                    "name": "Alexey Kopytko",
+                    "email": "alexey@kopytko.com",
+                    "homepage": "https://www.alexeykopytko.com"
+                },
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
+                }
+            ],
+            "description": "Infection is a Mutation Testing framework for PHP. The mutation adequacy score can be used to measure the effectiveness of a test set in terms of its ability to detect faults.",
+            "keywords": [
+                "coverage",
+                "mutant",
+                "mutation framework",
+                "mutation testing",
+                "testing",
+                "unit testing"
+            ],
+            "time": "2019-11-29T06:37:53+00:00"
+        },
+        {
+            "name": "jangregor/phpstan-prophecy",
+            "version": "0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jan0707/phpstan-prophecy.git",
+                "reference": "542c8ed7228af772562fb0f370d15ec73e3bdecf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/542c8ed7228af772562fb0f370d15ec73e3bdecf",
+                "reference": "542c8ed7228af772562fb0f370d15ec73e3bdecf",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "phpstan/phpstan": "^0.12.0"
+            },
+            "conflict": {
+                "phpspec/prophecy": "<1.7,>=2.0",
+                "phpunit/phpunit": "<6.0,>=9.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.1.1",
+                "ergebnis/php-cs-fixer-config": "~1.1.2",
+                "phpspec/prophecy": "^1.7",
+                "phpunit/phpunit": "^6.0 || ^7.0"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "src/extension.neon"
+                    ]
+                },
+                "violinist": {
+                    "allow_updates_beyond_constraint": 0,
+                    "one_pull_request_per_package": 1,
+                    "update_with_dependencies": 1
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JanGregor\\Prophecy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Gregor Emge-Triebel",
+                    "email": "jan@jangregor.me"
+                }
+            ],
+            "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
+            "time": "2019-12-27T23:57:21+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.9",
             "source": {
@@ -2651,16 +2807,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.8",
+            "version": "0.12.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "62a552602b7586d82826231f2fd4cbfe39fe0b1d"
+                "reference": "297cb2458a96ea96d5e9d6ef38f1b7305c071f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/62a552602b7586d82826231f2fd4cbfe39fe0b1d",
-                "reference": "62a552602b7586d82826231f2fd4cbfe39fe0b1d",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/297cb2458a96ea96d5e9d6ef38f1b7305c071f32",
+                "reference": "297cb2458a96ea96d5e9d6ef38f1b7305c071f32",
                 "shasum": ""
             },
             "require": {
@@ -2686,7 +2842,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-01-26T23:36:48+00:00"
+            "time": "2020-02-04T22:30:27+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -2738,6 +2894,62 @@
             ],
             "description": "PHPStan rules for detecting usage of deprecated classes, methods, properties, constants and traits.",
             "time": "2020-01-12T16:25:40+00:00"
+        },
+        {
+            "name": "phpstan/phpstan-phpunit",
+            "version": "0.12.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-phpunit.git",
+                "reference": "26394996368b6d033d012547d3197f4e07e23021"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/26394996368b6d033d012547d3197f4e07e23021",
+                "reference": "26394996368b6d033d012547d3197f4e07e23021",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.1",
+                "phpstan/phpstan": "^0.12.4"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<7.0"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "^3.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "ergebnis/composer-normalize": "^2.0.2",
+                "jakub-onderka/php-parallel-lint": "^1.0",
+                "phing/phing": "^2.16.0",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^7.0",
+                "satooshi/php-coveralls": "^1.0",
+                "slevomat/coding-standard": "^4.7.2"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                },
+                "phpstan": {
+                    "includes": [
+                        "extension.neon",
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPUnit extensions and rules for PHPStan",
+            "time": "2020-01-10T12:07:21+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
@@ -3124,6 +3336,159 @@
                 "xunit"
             ],
             "time": "2020-01-08T08:49:49+00:00"
+        },
+        {
+            "name": "pimple/pimple",
+            "version": "v3.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/9e403941ef9d65d20cba7d54e29fe906db42cf32",
+                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple, a simple Dependency Injection Container",
+            "homepage": "http://pimple.sensiolabs.org",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "time": "2018-01-21T07:42:36+00:00"
+        },
+        {
+            "name": "psalm/plugin-phpunit",
+            "version": "0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/psalm/phpunit-psalm-plugin.git",
+                "reference": "021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/psalm/phpunit-psalm-plugin/zipball/021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012",
+                "reference": "021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012",
+                "shasum": ""
+            },
+            "require": {
+                "composer/semver": "^1.4",
+                "ocramius/package-versions": "^1.3",
+                "phpunit/phpunit": "^6.0 || ^7.0 || ^8.0",
+                "vimeo/psalm": "^3.6.2 || dev-master"
+            },
+            "require-dev": {
+                "codeception/base": "^2.5",
+                "squizlabs/php_codesniffer": "^3.3.1",
+                "weirdan/codeception-psalm-module": "^0.2.2"
+            },
+            "type": "psalm-plugin",
+            "extra": {
+                "psalm": {
+                    "pluginClass": "Psalm\\PhpUnitPlugin\\Plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psalm\\PhpUnitPlugin\\": [
+                        "."
+                    ],
+                    "Psalm\\PhpUnitPlugin\\Hooks\\": [
+                        "hooks"
+                    ],
+                    "Psalm\\PhpUnitPlugin\\Exception\\": [
+                        "Exception"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Brown",
+                    "email": "github@muglug.com"
+                }
+            ],
+            "description": "Psalm plugin for PHPUnit",
+            "time": "2020-01-10T00:31:44+00:00"
+        },
+        {
+            "name": "psr/event-dispatcher",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/event-dispatcher.git",
+                "reference": "dbefd12671e8a14ec7f180cab83036ed26714bb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/event-dispatcher/zipball/dbefd12671e8a14ec7f180cab83036ed26714bb0",
+                "reference": "dbefd12671e8a14ec7f180cab83036ed26714bb0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\EventDispatcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Standard interfaces for event handling.",
+            "keywords": [
+                "events",
+                "psr",
+                "psr-14"
+            ],
+            "time": "2019-01-08T18:20:26+00:00"
         },
         {
             "name": "psr/http-message",
@@ -3775,6 +4140,55 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "seld/jsonlint",
+            "version": "1.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/jsonlint.git",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+            },
+            "bin": [
+                "bin/jsonlint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Seld\\JsonLint\\": "src/Seld/JsonLint/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "JSON Linter",
+            "keywords": [
+                "json",
+                "linter",
+                "parser",
+                "validator"
+            ],
+            "time": "2019-10-24T14:27:39+00:00"
+        },
+        {
             "name": "slevomat/coding-standard",
             "version": "6.1.4",
             "source": {
@@ -3868,25 +4282,25 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v4.4.4",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "a167b1860995b926d279f9bb538f873e3bfa3465"
+                "reference": "ff60c90cb7950b592ebc84ad1289d0345bf24f9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/a167b1860995b926d279f9bb538f873e3bfa3465",
-                "reference": "a167b1860995b926d279f9bb538f873e3bfa3465",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/ff60c90cb7950b592ebc84ad1289d0345bf24f9f",
+                "reference": "ff60c90cb7950b592ebc84ad1289d0345bf24f9f",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -3917,41 +4331,41 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-04T13:00:46+00:00"
+            "time": "2020-01-04T14:08:26+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.4.4",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "9e3de195e5bc301704dd6915df55892f6dfc208b"
+                "reference": "4a7a8cdca1120c091b4797f0e5bba69c1e783224"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9e3de195e5bc301704dd6915df55892f6dfc208b",
-                "reference": "9e3de195e5bc301704dd6915df55892f6dfc208b",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/4a7a8cdca1120c091b4797f0e5bba69c1e783224",
+                "reference": "4a7a8cdca1120c091b4797f0e5bba69c1e783224",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
-                "symfony/event-dispatcher-contracts": "^1.1"
+                "php": "^7.2.5",
+                "symfony/event-dispatcher-contracts": "^2"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.4"
+                "symfony/dependency-injection": "<4.4"
             },
             "provide": {
                 "psr/event-dispatcher-implementation": "1.0",
-                "symfony/event-dispatcher-implementation": "1.1"
+                "symfony/event-dispatcher-implementation": "2.0"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "^3.4|^4.0|^5.0",
-                "symfony/dependency-injection": "^3.4|^4.0|^5.0",
-                "symfony/expression-language": "^3.4|^4.0|^5.0",
-                "symfony/http-foundation": "^3.4|^4.0|^5.0",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/expression-language": "^4.4|^5.0",
+                "symfony/http-foundation": "^4.4|^5.0",
                 "symfony/service-contracts": "^1.1|^2",
-                "symfony/stopwatch": "^3.4|^4.0|^5.0"
+                "symfony/stopwatch": "^4.4|^5.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -3960,7 +4374,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -3987,33 +4401,33 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-10T21:54:01+00:00"
+            "time": "2020-01-10T21:57:37+00:00"
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v1.1.7",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "c43ab685673fb6c8d84220c77897b1d6cdbe1d18"
+                "reference": "af23c2584d4577d54661c434446fb8fbed6025dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/c43ab685673fb6c8d84220c77897b1d6cdbe1d18",
-                "reference": "c43ab685673fb6c8d84220c77897b1d6cdbe1d18",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/af23c2584d4577d54661c434446fb8fbed6025dd",
+                "reference": "af23c2584d4577d54661c434446fb8fbed6025dd",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5",
+                "psr/event-dispatcher": "^1"
             },
             "suggest": {
-                "psr/event-dispatcher": "",
                 "symfony/event-dispatcher-implementation": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -4045,29 +4459,79 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-09-17T09:54:03+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
-            "name": "symfony/finder",
-            "version": "v4.4.4",
+            "name": "symfony/filesystem",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/finder.git",
-                "reference": "3a50be43515590faf812fbd7708200aabc327ec3"
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "3afadc0f57cd74f86379d073e694b0f2cda2a88c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/3a50be43515590faf812fbd7708200aabc327ec3",
-                "reference": "3a50be43515590faf812fbd7708200aabc327ec3",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3afadc0f57cd74f86379d073e694b0f2cda2a88c",
+                "reference": "3afadc0f57cd74f86379d073e694b0f2cda2a88c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5",
+                "symfony/polyfill-ctype": "~1.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-01-21T08:40:24+00:00"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v5.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "4176e7cb846fe08f32518b7e0ed8462e2db8d9bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/4176e7cb846fe08f32518b7e0ed8462e2db8d9bb",
+                "reference": "4176e7cb846fe08f32518b7e0ed8462e2db8d9bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -4094,31 +4558,80 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-04T13:00:46+00:00"
+            "time": "2020-01-04T14:08:26+00:00"
         },
         {
-            "name": "symfony/yaml",
-            "version": "v4.4.4",
+            "name": "symfony/process",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "cd014e425b3668220adb865f53bff64b3ad21767"
+                "url": "https://github.com/symfony/process.git",
+                "reference": "f9ffd870f5ac01abec7b2b5e15f904ca9400ecd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/cd014e425b3668220adb865f53bff64b3ad21767",
-                "reference": "cd014e425b3668220adb865f53bff64b3ad21767",
+                "url": "https://api.github.com/repos/symfony/process/zipball/f9ffd870f5ac01abec7b2b5e15f904ca9400ecd1",
+                "reference": "f9ffd870f5ac01abec7b2b5e15f904ca9400ecd1",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-01-09T09:53:06+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v5.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "69b44e3b8f90949aee2eb3aa9b86ceeb01cbf62a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/69b44e3b8f90949aee2eb3aa9b86ceeb01cbf62a",
+                "reference": "69b44e3b8f90949aee2eb3aa9b86ceeb01cbf62a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5",
                 "symfony/polyfill-ctype": "~1.8"
             },
             "conflict": {
-                "symfony/console": "<3.4"
+                "symfony/console": "<4.4"
             },
             "require-dev": {
-                "symfony/console": "^3.4|^4.0|^5.0"
+                "symfony/console": "^4.4|^5.0"
             },
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
@@ -4126,7 +4639,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -4153,7 +4666,139 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-21T11:12:16+00:00"
+            "time": "2020-01-21T11:12:28+00:00"
+        },
+        {
+            "name": "thecodingmachine/safe",
+            "version": "v0.1.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/safe.git",
+                "reference": "4e8f840f0a0a2ea167813c3994a7fc527c3c2182"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/4e8f840f0a0a2ea167813c3994a7fc527c3c2182",
+                "reference": "4e8f840f0a0a2ea167813c3994a7fc527c3c2182",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.10.3",
+                "squizlabs/php_codesniffer": "^3.2",
+                "thecodingmachine/phpstan-strict-rules": "^0.10.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Safe\\": [
+                        "lib/",
+                        "generated/"
+                    ]
+                },
+                "files": [
+                    "generated/apache.php",
+                    "generated/apc.php",
+                    "generated/apcu.php",
+                    "generated/array.php",
+                    "generated/bzip2.php",
+                    "generated/classobj.php",
+                    "generated/com.php",
+                    "generated/cubrid.php",
+                    "generated/curl.php",
+                    "generated/datetime.php",
+                    "generated/dir.php",
+                    "generated/eio.php",
+                    "generated/errorfunc.php",
+                    "generated/exec.php",
+                    "generated/fileinfo.php",
+                    "generated/filesystem.php",
+                    "generated/filter.php",
+                    "generated/fpm.php",
+                    "generated/ftp.php",
+                    "generated/funchand.php",
+                    "generated/gmp.php",
+                    "generated/gnupg.php",
+                    "generated/hash.php",
+                    "generated/ibase.php",
+                    "generated/ibmDb2.php",
+                    "generated/iconv.php",
+                    "generated/image.php",
+                    "generated/imap.php",
+                    "generated/info.php",
+                    "generated/ingres-ii.php",
+                    "generated/inotify.php",
+                    "generated/json.php",
+                    "generated/ldap.php",
+                    "generated/libevent.php",
+                    "generated/libxml.php",
+                    "generated/lzf.php",
+                    "generated/mailparse.php",
+                    "generated/mbstring.php",
+                    "generated/misc.php",
+                    "generated/msql.php",
+                    "generated/mssql.php",
+                    "generated/mysql.php",
+                    "generated/mysqli.php",
+                    "generated/mysqlndMs.php",
+                    "generated/mysqlndQc.php",
+                    "generated/network.php",
+                    "generated/oci8.php",
+                    "generated/opcache.php",
+                    "generated/openssl.php",
+                    "generated/outcontrol.php",
+                    "generated/password.php",
+                    "generated/pcntl.php",
+                    "generated/pcre.php",
+                    "generated/pdf.php",
+                    "generated/pgsql.php",
+                    "generated/posix.php",
+                    "generated/ps.php",
+                    "generated/pspell.php",
+                    "generated/readline.php",
+                    "generated/rrd.php",
+                    "generated/sem.php",
+                    "generated/session.php",
+                    "generated/shmop.php",
+                    "generated/simplexml.php",
+                    "generated/sockets.php",
+                    "generated/sodium.php",
+                    "generated/solr.php",
+                    "generated/spl.php",
+                    "generated/sqlsrv.php",
+                    "generated/ssdeep.php",
+                    "generated/ssh2.php",
+                    "generated/stats.php",
+                    "generated/stream.php",
+                    "generated/strings.php",
+                    "generated/swoole.php",
+                    "generated/uodbc.php",
+                    "generated/uopz.php",
+                    "generated/url.php",
+                    "generated/var.php",
+                    "generated/xdiff.php",
+                    "generated/xml.php",
+                    "generated/xmlrpc.php",
+                    "generated/yaml.php",
+                    "generated/yaz.php",
+                    "generated/zip.php",
+                    "generated/zlib.php",
+                    "lib/special_cases.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
+            "time": "2019-06-25T08:45:33+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -4197,16 +4842,16 @@
         },
         {
             "name": "weirdan/codeception-psalm-module",
-            "version": "dev-codeception-4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Lctrs/codeception-psalm-module.git",
-                "reference": "7139545d18296f2c414586154316f069f748dded"
+                "url": "https://github.com/weirdan/codeception-psalm-module.git",
+                "reference": "b8a522dd40cf99f5fc6f3d523c227f4bb3c08dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Lctrs/codeception-psalm-module/zipball/7139545d18296f2c414586154316f069f748dded",
-                "reference": "7139545d18296f2c414586154316f069f748dded",
+                "url": "https://api.github.com/repos/weirdan/codeception-psalm-module/zipball/b8a522dd40cf99f5fc6f3d523c227f4bb3c08dc0",
+                "reference": "b8a522dd40cf99f5fc6f3d523c227f4bb3c08dc0",
                 "shasum": ""
             },
             "require": {
@@ -4215,12 +4860,12 @@
                 "codeception/module-filesystem": "^1.0.2",
                 "composer/semver": "^1.4",
                 "ext-json": "*",
-                "php": "^7.1.3"
+                "php": "^7.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.0.0 || ^7.0.0 || ^8.0.0",
                 "squizlabs/php_codesniffer": "^3.4",
-                "vimeo/psalm": "^3.8.3"
+                "vimeo/psalm": "^3.7.0"
             },
             "type": "codeception-module",
             "autoload": {
@@ -4228,22 +4873,7 @@
                     "Weirdan\\Codeception\\Psalm\\": "src/"
                 }
             },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@static-analysis",
-                    "@test"
-                ],
-                "cs-check": [
-                    "phpcs --colors"
-                ],
-                "static-analysis": [
-                    "psalm"
-                ],
-                "test": [
-                    "codecept run -v"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4259,10 +4889,7 @@
                 "psalm",
                 "psalm-plugin"
             ],
-            "support": {
-                "source": "https://github.com/Lctrs/codeception-psalm-module/tree/codeception-4"
-            },
-            "time": "2020-02-04T10:45:33+00:00"
+            "time": "2020-02-05T09:38:43+00:00"
         }
     ],
     "aliases": [],
@@ -4273,7 +4900,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.2.9"
     },
     "platform-dev": []
 }

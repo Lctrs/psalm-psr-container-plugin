@@ -5,6 +5,7 @@
 /.gitattributes         export-ignore
 /.gitignore             export-ignore
 /codeception.dist.yml   export-ignore
+/infection.json.dist    export-ignore
 /Makefile               export-ignore
 /phpcs.xml.dist         export-ignore
 /phpstan.neon.dist      export-ignore

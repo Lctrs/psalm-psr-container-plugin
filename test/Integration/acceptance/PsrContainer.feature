@@ -48,12 +48,25 @@ Feature: PsrContainer
     When I run psalm
     Then I see no errors
 
-  Scenario: Asserting psalm recognizes return type of service got via 'ContainerInterface::get()'
+  Scenario: Asserting psalm recognizes return type of service got via a class implementing ContainerInterface
     Given I have the following code
       """
       <?php
 
       use Psr\Container\ContainerInterface;
+
+      class MyContainer implements ContainerInterface
+      {
+        public function get($id)
+        {
+          return 'something';
+        }
+
+        public function has($id)
+        {
+          return true;
+        }
+      }
 
       class SomeService
       {
@@ -61,10 +74,10 @@ Feature: PsrContainer
 
       class Dummy
       {
-        /** @var ContainerInterface */
+        /** @var MyContainer */
         private $container;
 
-        public function __construct(ContainerInterface $container)
+        public function __construct(MyContainer $container)
         {
           $this->container = $container;
         }
