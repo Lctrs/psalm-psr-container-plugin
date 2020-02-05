@@ -8,8 +8,13 @@
     resolveFromConfigFile="true"
     totallyTyped="true"
 >
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
+    </plugins>
+
     <projectFiles>
         <directory name="src" />
+        <directory name="test/Unit" />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>

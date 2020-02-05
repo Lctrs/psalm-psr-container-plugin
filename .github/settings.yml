@@ -25,6 +25,10 @@ branches:
           - "Tests (7.4, lowest)"
           - "Tests (7.4, locked)"
           - "Tests (7.4, highest)"
+          - "Code Coverage (7.4, locked)"
+          - "Mutation Tests (7.4, locked)"
+          - "codecov/patch"
+          - "codecov/project"
         strict: false
       restrictions: null
 

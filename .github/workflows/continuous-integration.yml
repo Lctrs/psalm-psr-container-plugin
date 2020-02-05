@@ -9,6 +9,8 @@ on:
       - "master"
 
 env:
+  MIN_COVERED_MSI: 94
+  MIN_MSI: 94
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -176,8 +178,108 @@ jobs:
         if: "matrix.dependencies == 'highest'"
         run: "composer update --no-interaction --no-progress --no-suggest"
 
-      - name: "Run acceptance tests with codeception/codeception"
+      - name: "Run unit tests with phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist"
+
+      - name: "Run integration tests with codeception/codeception"
         run: "vendor/bin/codecept run --config=codeception.dist.yml --steps"
+
+  code-coverage:
+    name: "Code Coverage"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@1.7.4"
+        with:
+          coverage: "pcov"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v1.0.3"
+        with:
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+
+      - name: "Install locked dependencies with composer"
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Install highest dependencies with composer"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
+
+      - name: "Collect code coverage with pcov and phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist --coverage-clover=.build/logs/clover.xml"
+
+      - name: "Send code coverage report to Codecov.io"
+        env:
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        run: "bash <(curl -s https://codecov.io/bash)"
+
+  mutation-tests:
+    name: "Mutation Tests"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@1.7.4"
+        with:
+          coverage: "pcov"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v1.0.3"
+        with:
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+
+      - name: "Install locked dependencies with composer"
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Install highest dependencies with composer"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
+
+      - name: "Run mutation tests with pcov and infection/infection"
+        run: "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=${{ env.MIN_COVERED_MSI }} --min-msi=${{ env.MIN_MSI }}"
 
   review:
     name: "Review"
@@ -185,7 +287,9 @@ jobs:
     runs-on: "ubuntu-latest"
 
     needs:
+      - "code-coverage"
       - "coding-standards"
+      - "mutation-tests"
       - "static-code-analysis"
       - "tests"
 

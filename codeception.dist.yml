@@ -18,11 +18,11 @@ extensions:
 
 # additional paths
 paths:
-  tests: test
-  output: test/_output
-  data: test/_data
-  support: test/_support
-  envs: test/_envs
+  tests: test/Integration
+  output: test/Integration/_output
+  data: test/Integration/_data
+  support: test/Integration/_support
+  envs: test/Integration/_envs
 
 settings:
   shuffle: false

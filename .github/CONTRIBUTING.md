@@ -42,7 +42,7 @@ to regenerate the baselines in [`../phpstan-baseline.neon`](../phpstan-baseline.
 
 ## Tests
 
-We are using [`codeception/codeception`](https://github.com/Codeception/Codeception) to drive the development.
+We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) and [`codeception/codeception`](https://github.com/Codeception/Codeception) to drive the development.
 
 Run
 
@@ -51,6 +51,18 @@ $ make tests
 ```
 
 to run all the tests.
+
+## Mutation Tests
+
+We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
+
+Enable `pcov` or `Xdebug` and run
+
+```
+$ make mutation-tests
+```
+
+to run mutation tests.
 
 ## Extra lazy?
 

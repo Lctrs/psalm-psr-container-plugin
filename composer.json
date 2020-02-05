@@ -21,7 +21,7 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.2.9",
     "nikic/php-parser": "^4.3.0",
     "vimeo/psalm": "^3.8.3"
   },
@@ -30,12 +30,17 @@
     "codeception/module-asserts": "^1.1.1",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.2",
+    "infection/infection": "^0.15.0",
+    "jangregor/phpstan-prophecy": "^0.6.0",
     "phpstan/extension-installer": "^1.0.3",
-    "phpstan/phpstan": "^0.12.8",
+    "phpstan/phpstan": "^0.12.9",
     "phpstan/phpstan-deprecation-rules": "^0.12.2",
+    "phpstan/phpstan-phpunit": "^0.12.6",
     "phpstan/phpstan-strict-rules": "^0.12.2",
+    "phpunit/phpunit": "^8.5.2",
+    "psalm/plugin-phpunit": "^0.8.1",
     "psr/container": "^1.0.0",
-    "weirdan/codeception-psalm-module": "dev-codeception-4"
+    "weirdan/codeception-psalm-module": "dev-master"
   },
   "config": {
     "preferred-install": "dist",
@@ -53,15 +58,10 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Lctrs\\PsalmPsrContainerPlugin\\Test\\": "test/_support"
+      "Lctrs\\PsalmPsrContainerPlugin\\Test\\Integration\\": "test/Integration/_support",
+      "Lctrs\\PsalmPsrContainerPlugin\\Test\\Unit\\": "test/Unit"
     }
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Lctrs/codeception-psalm-module.git"
-    }
-  ],
   "support": {
     "issues": "https://github.com/Lctrs/psalm-psr-container-plugin/issues",
     "source": "https://github.com/Lctrs/psalm-psr-container-plugin"

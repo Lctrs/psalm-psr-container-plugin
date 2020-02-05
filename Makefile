@@ -1,3 +1,6 @@
+MIN_COVERED_MSI:=94
+MIN_MSI:=94
+
 .PHONY: it
 it: coding-standards static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
 
@@ -15,6 +18,11 @@ coding-standards: vendor ## Fixes code style issues with doctrine/coding-standar
 help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: mutation-tests
+mutation-tests: vendor ## Runs mutation tests with infection/infection
+	mkdir -p .build/infection
+	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=${MIN_COVERED_MSI} --min-msi=${MIN_MSI}
+
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
@@ -31,7 +39,9 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
-tests: vendor ## Runs acceptance tests with codeception/codeception
+tests: vendor ## Runs unit tests with phpunit/phpunit and integration tests with codeception/codeception
+	mkdir -p .build/phpunit
+	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist
 	vendor/bin/codecept run --config=codeception.dist.yml --steps
 
 vendor: composer.json composer.lock
