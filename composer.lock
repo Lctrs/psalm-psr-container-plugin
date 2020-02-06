@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2eb7847df433dcaee077fb640631a7f",
+    "content-hash": "a284e4bc29f718fc7e654b7d067fa98b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -4843,7 +4843,7 @@
         },
         {
             "name": "weirdan/codeception-psalm-module",
-            "version": "dev-master",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/weirdan/codeception-psalm-module.git",
@@ -4895,9 +4895,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "weirdan/codeception-psalm-module": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

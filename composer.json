@@ -26,7 +26,7 @@
     "vimeo/psalm": "^3.8.3"
   },
   "require-dev": {
-    "codeception/codeception": "^4.0",
+    "codeception/codeception": "^4.0.3",
     "codeception/module-asserts": "^1.1.1",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.2",
@@ -40,7 +40,7 @@
     "phpunit/phpunit": "^8.5.2",
     "psalm/plugin-phpunit": "^0.8.1",
     "psr/container": "^1.0.0",
-    "weirdan/codeception-psalm-module": "dev-master"
+    "weirdan/codeception-psalm-module": "^0.3.0"
   },
   "config": {
     "preferred-install": "dist",
