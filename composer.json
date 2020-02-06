@@ -30,7 +30,7 @@
     "codeception/module-asserts": "^1.1.1",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.2",
-    "infection/infection": "^0.15.0",
+    "infection/infection": "^0.15.1",
     "jangregor/phpstan-prophecy": "^0.6.1",
     "phpstan/extension-installer": "^1.0.3",
     "phpstan/phpstan": "^0.12.9",
