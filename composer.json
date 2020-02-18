@@ -23,7 +23,7 @@
   "require": {
     "php": "^7.2.9",
     "nikic/php-parser": "^4.3.0",
-    "vimeo/psalm": "^3.8.3"
+    "vimeo/psalm": "^3.9.0"
   },
   "require-dev": {
     "codeception/codeception": "^4.1.0",
