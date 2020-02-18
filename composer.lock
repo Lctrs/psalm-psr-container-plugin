@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5343787c19d2c0b774e7de809b92cde5",
+    "content-hash": "a6cd82462a9e29d8a7683beeb22d76f6",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1626,21 +1626,24 @@
         },
         {
             "name": "codeception/module-cli",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/module-cli.git",
-                "reference": "ad8b180c1b0133ac4da29d02d37aabb95acf5a49"
+                "reference": "ca35844de0392356b413e93dba52423aaf1a67a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-cli/zipball/ad8b180c1b0133ac4da29d02d37aabb95acf5a49",
-                "reference": "ad8b180c1b0133ac4da29d02d37aabb95acf5a49",
+                "url": "https://api.github.com/repos/Codeception/module-cli/zipball/ca35844de0392356b413e93dba52423aaf1a67a6",
+                "reference": "ca35844de0392356b413e93dba52423aaf1a67a6",
                 "shasum": ""
             },
             "require": {
-                "codeception/codeception": "4.0.x-dev | ^4.0",
+                "codeception/codeception": "*@dev",
                 "php": ">=5.6.0 <8.0"
+            },
+            "conflict": {
+                "codeception/codeception": "<4.0"
             },
             "require-dev": {
                 "codeception/util-robohelpers": "dev-master"
@@ -1665,7 +1668,7 @@
             "keywords": [
                 "codeception"
             ],
-            "time": "2019-09-19T10:50:14+00:00"
+            "time": "2020-02-07T17:34:13+00:00"
         },
         {
             "name": "codeception/module-filesystem",

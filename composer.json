@@ -28,6 +28,8 @@
   "require-dev": {
     "codeception/codeception": "^4.1.0",
     "codeception/module-asserts": "^1.1.1",
+    "codeception/module-cli": "^1.0.2",
+    "codeception/module-filesystem": "^1.0.2",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.3",
     "infection/infection": "^0.15.3",
