@@ -1,4 +1,4 @@
-# php-library-template
+# psalm-psr-container-plugin
 
 [![Continuous Deployment](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Continuous%20Deployment/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 [![Continuous Integration](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Continuous%20Integration/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
