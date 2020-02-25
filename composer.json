@@ -31,7 +31,7 @@
     "codeception/module-cli": "^1.0.2",
     "codeception/module-filesystem": "^1.0.2",
     "doctrine/coding-standard": "^7.0.2",
-    "ergebnis/composer-normalize": "^2.2.3",
+    "ergebnis/composer-normalize": "^2.2.4",
     "infection/infection": "^0.15.3",
     "jangregor/phpstan-prophecy": "^0.6.2",
     "phpstan/extension-installer": "^1.0.3",
