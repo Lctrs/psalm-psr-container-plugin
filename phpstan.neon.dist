@@ -4,6 +4,8 @@ includes:
 parameters:
 	level: max
 	paths:
-		- src
-		- test/Unit
+		- src/
+		- test/
+	excludes_analyse:
+		- test/Integration/*
 	tmpDir: %currentWorkingDirectory%/.build/phpstan

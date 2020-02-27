@@ -8,6 +8,9 @@
     <rule ref="Doctrine">
         <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
     </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint"/>
+    </rule>
 
     <file>src/</file>
     <file>test/</file>

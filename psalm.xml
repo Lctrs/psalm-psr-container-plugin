@@ -5,18 +5,23 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     cacheDirectory=".build/psalm"
     errorBaseline="psalm-baseline.xml"
+    errorLevel="1"
     resolveFromConfigFile="true"
-    totallyTyped="true"
 >
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info"/>
+    </issueHandlers>
+
     <plugins>
-        <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
 
     <projectFiles>
-        <directory name="src" />
-        <directory name="test/Unit" />
+        <directory name="src/"/>
+        <directory name="test/"/>
         <ignoreFiles>
-            <directory name="vendor" />
+            <directory name="test/Integration/"/>
+            <directory name="vendor/"/>
         </ignoreFiles>
     </projectFiles>
 </psalm>
