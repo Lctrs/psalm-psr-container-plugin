@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f278e2db444becde60d37fe48112214",
+    "content-hash": "c7f386cce077e9abfc0df44e703040bf",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1979,6 +1979,58 @@
             "time": "2019-10-21T16:45:58+00:00"
         },
         {
+            "name": "ergebnis/classy",
+            "version": "0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/classy.git",
+                "reference": "e8e1b6f17c82389eb1d232acd6aac290286b3259"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/e8e1b6f17c82389eb1d232acd6aac290286b3259",
+                "reference": "e8e1b6f17c82389eb1d232acd6aac290286b3259",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^1.3.1",
+                "ergebnis/phpstan-rules": "~0.13.0",
+                "ergebnis/test-util": "~0.7.0",
+                "infection/infection": "~0.13.6",
+                "localheinz/php-cs-fixer-config": "~1.24.0",
+                "phpbench/phpbench": "~0.16.10",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.11.19",
+                "phpstan/phpstan-deprecation-rules": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^7.5.18",
+                "zendframework/zend-file": "^2.8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Classy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides a way to collect classy constructs from source or a directory.",
+            "homepage": "https://github.com/ergebnis/classy",
+            "time": "2019-12-19T08:25:00+00:00"
+        },
+        {
             "name": "ergebnis/composer-normalize",
             "version": "2.2.4",
             "source": {
@@ -2160,6 +2212,112 @@
                 "printer"
             ],
             "time": "2019-12-19T14:42:54+00:00"
+        },
+        {
+            "name": "ergebnis/test-util",
+            "version": "0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/test-util.git",
+                "reference": "c6c40aa40fca705d8756816afb529adc9b083e42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/c6c40aa40fca705d8756816afb529adc9b083e42",
+                "reference": "c6c40aa40fca705d8756816afb529adc9b083e42",
+                "shasum": ""
+            },
+            "require": {
+                "ergebnis/classy": "~0.5.1",
+                "fzaninotto/faker": "^1.9.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^1.3.1",
+                "ergebnis/phpstan-rules": "~0.13.0",
+                "infection/infection": "~0.13.6",
+                "localheinz/php-cs-fixer-config": "~1.24.0",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.11.19",
+                "phpstan/phpstan-phpunit": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^7.5.18"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Test\\Util\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides utilities for tests.",
+            "homepage": "https://github.com/ergebnis/test-util",
+            "keywords": [
+                "assertion",
+                "faker",
+                "phpunit",
+                "test"
+            ],
+            "time": "2019-12-19T09:08:28+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^2.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2505,6 +2663,78 @@
                 "unified diff"
             ],
             "time": "2019-12-17T07:42:37+00:00"
+        },
+        {
+            "name": "maglnet/composer-require-checker",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maglnet/ComposerRequireChecker.git",
+                "reference": "0c66698d487fcb5c66cf07108e2180c818fb2e72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/0c66698d487fcb5c66cf07108e2180c818fb2e72",
+                "reference": "0c66698d487fcb5c66cf07108e2180c818fb2e72",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-phar": "*",
+                "nikic/php-parser": "^4.3",
+                "ocramius/package-versions": "^1.4.2",
+                "php": "^7.2",
+                "symfony/console": "^5.0",
+                "webmozart/glob": "^4.1"
+            },
+            "require-dev": {
+                "ext-zend-opcache": "*",
+                "mikey179/vfsstream": "^1.6",
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.4.3"
+            },
+            "bin": [
+                "bin/composer-require-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ComposerRequireChecker\\": "src/ComposerRequireChecker"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.io/"
+                },
+                {
+                    "name": "Matthias Glaub",
+                    "email": "magl@magl.net",
+                    "homepage": "http://magl.net"
+                }
+            ],
+            "description": "CLI tool to analyze composer dependencies and verify that no unknown symbols are used in the sources of a package",
+            "homepage": "https://github.com/maglnet/ComposerRequireChecker",
+            "keywords": [
+                "analysis",
+                "cli",
+                "composer",
+                "dependency",
+                "imports",
+                "require",
+                "requirements"
+            ],
+            "time": "2019-12-28T13:49:20+00:00"
         },
         {
             "name": "myclabs/deep-copy",

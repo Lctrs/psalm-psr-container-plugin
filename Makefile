@@ -2,7 +2,7 @@ MIN_COVERED_MSI:=94
 MIN_MSI:=94
 
 .PHONY: it
-it: coding-standards static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
+it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit tests with phpunit/phpunit
@@ -13,6 +13,10 @@ coding-standards: vendor ## Fixes code style issues with doctrine/coding-standar
 	mkdir -p .build/php_codesniffer
 	vendor/bin/phpcbf
 	vendor/bin/phpcs
+
+.PHONY: dependency-analysis
+dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
+	php -d memory_limit=-1 vendor/bin/composer-require-checker
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
@@ -41,6 +45,7 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 .PHONY: tests
 tests: vendor ## Runs unit tests with phpunit/phpunit and integration tests with codeception/codeception
 	mkdir -p .build/phpunit
+	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml.dist
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist
 	vendor/bin/codecept run --config=codeception.dist.yml --steps
 
