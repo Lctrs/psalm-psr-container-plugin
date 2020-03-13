@@ -33,7 +33,7 @@
     "codeception/module-filesystem": "^1.0.2",
     "doctrine/coding-standard": "^7.0.2",
     "ergebnis/composer-normalize": "^2.2.4",
-    "ergebnis/test-util": "^0.9.1",
+    "ergebnis/test-util": "^1.0.0",
     "infection/infection": "^0.15.3",
     "jangregor/phpstan-prophecy": "^0.6.2",
     "maglnet/composer-require-checker": "^2.1.0",
