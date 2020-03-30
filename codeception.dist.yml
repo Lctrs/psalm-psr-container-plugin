@@ -10,7 +10,7 @@ suites:
         - "Cli"
         - "Filesystem"
         - \Weirdan\Codeception\Psalm\Module:
-            default_file: ".build/codeception/_run/somefile.php"
+            default_dir: ".build/codeception/"
         - "\\Lctrs\\PsalmPsrContainerPlugin\\Test\\Helper\\Acceptance"
 
 extensions:
