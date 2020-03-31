@@ -14,6 +14,7 @@
 
     <file>src/</file>
     <file>test/</file>
+    <file>update-license.php</file>
 
     <exclude-pattern>test/_support/_generated</exclude-pattern>
 </ruleset>

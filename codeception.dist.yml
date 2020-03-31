@@ -1,28 +1,28 @@
-namespace: Lctrs\PsalmPsrContainerPlugin\Test
+namespace: "Lctrs\\PsalmPsrContainerPlugin\\Test"
 
 # suite config
 suites:
   acceptance:
-    actor: AcceptanceTester
-    path: .
+    actor: "AcceptanceTester"
+    path: "."
     modules:
       enabled:
-        - Cli
-        - Filesystem
+        - "Cli"
+        - "Filesystem"
         - \Weirdan\Codeception\Psalm\Module:
-            default_file: .build/codeception/_run/somefile.php
-        - \Lctrs\PsalmPsrContainerPlugin\Test\Helper\Acceptance
+            default_file: ".build/codeception/_run/somefile.php"
+        - "\\Lctrs\\PsalmPsrContainerPlugin\\Test\\Helper\\Acceptance"
 
 extensions:
-  enabled: [Codeception\Extension\RunFailed]
+  enabled: ["Codeception\\Extension\\RunFailed"]
 
 # additional paths
 paths:
-  tests: test/Integration
-  output: test/Integration/_output
-  data: test/Integration/_data
-  support: test/Integration/_support
-  envs: test/Integration/_envs
+  tests: "test/Integration"
+  output: "test/Integration/_output"
+  data: "test/Integration/_data"
+  support: "test/Integration/_support"
+  envs: "test/Integration/_envs"
 
 settings:
   shuffle: false
