@@ -6,6 +6,7 @@ parameters:
 	paths:
 		- src/
 		- test/
+		- update-license.php
 	excludes_analyse:
 		- test/Integration/*
-	tmpDir: %currentWorkingDirectory%/.build/phpstan
+	tmpDir: .build/phpstan/
