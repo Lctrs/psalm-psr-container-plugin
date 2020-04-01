@@ -49,6 +49,7 @@ tests: vendor ## Runs unit tests with phpunit/phpunit and integration tests with
 	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml.dist
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist
+	mkdir -p .build/codeception
 	vendor/bin/codecept run --config=codeception.dist.yml --steps
 
 vendor: composer.json composer.lock
