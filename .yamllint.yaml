@@ -61,5 +61,5 @@ rules:
       - "true"
 
 yaml-files:
-  - '*.yaml'
-  - '*.yml'
+  - "*.yaml"
+  - "*.yml"

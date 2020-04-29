@@ -10,6 +10,8 @@ For details, take a look at the following workflow configuration files:
 
 ## Coding Standards
 
+We are using [`yamllint`](https://github.com/adrienverge/yamllint) to enforce coding standards in YAML files.
+
 We are using [`doctrine/coding-standard`](https://github.com/doctrine-coding-standard) to enforce coding standards.
 
 Run
