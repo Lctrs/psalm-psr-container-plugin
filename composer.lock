@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f69c1aced3901d9b9d94a1adcd2c837",
+    "content-hash": "f453d5b6f67d3cd4284ec3abe6e148ff",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1529,21 +1529,21 @@
         },
         {
             "name": "codeception/lib-asserts",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/lib-asserts.git",
-                "reference": "1fdc310bf857c11d3703ae02689a2e482c71c5ab"
+                "reference": "acd0dc8b394595a74b58dcc889f72569ff7d8e71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/lib-asserts/zipball/1fdc310bf857c11d3703ae02689a2e482c71c5ab",
-                "reference": "1fdc310bf857c11d3703ae02689a2e482c71c5ab",
+                "url": "https://api.github.com/repos/Codeception/lib-asserts/zipball/acd0dc8b394595a74b58dcc889f72569ff7d8e71",
+                "reference": "acd0dc8b394595a74b58dcc889f72569ff7d8e71",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.0 <8.0",
-                "phpunit/phpunit": "^8.4 | ^9.0"
+                "codeception/phpunit-wrapper": ">6.0.15 <6.1.0 | ^6.6.1 | ^7.7.1 | ^8.0.3 | ^9.0",
+                "php": ">=5.6.0 <8.0"
             },
             "type": "library",
             "autoload": {
@@ -1570,25 +1570,25 @@
             "keywords": [
                 "codeception"
             ],
-            "time": "2020-02-11T10:45:21+00:00"
+            "time": "2020-04-17T18:20:46+00:00"
         },
         {
             "name": "codeception/module-asserts",
-            "version": "1.1.1",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/module-asserts.git",
-                "reference": "87c83ca3ccfbc0d79f5effb57e1f82eeaab0cb3e"
+                "reference": "79f13d05b63f2fceba4d0e78044bab668c9b2a6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/87c83ca3ccfbc0d79f5effb57e1f82eeaab0cb3e",
-                "reference": "87c83ca3ccfbc0d79f5effb57e1f82eeaab0cb3e",
+                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/79f13d05b63f2fceba4d0e78044bab668c9b2a6b",
+                "reference": "79f13d05b63f2fceba4d0e78044bab668c9b2a6b",
                 "shasum": ""
             },
             "require": {
                 "codeception/codeception": "*@dev",
-                "codeception/lib-asserts": "^1.0.0",
+                "codeception/lib-asserts": "^1.12.0",
                 "php": ">=5.6.0 <8.0"
             },
             "conflict": {
@@ -1622,7 +1622,7 @@
                 "asserts",
                 "codeception"
             ],
-            "time": "2019-11-13T17:32:27+00:00"
+            "time": "2020-04-20T07:26:11+00:00"
         },
         {
             "name": "codeception/module-cli",

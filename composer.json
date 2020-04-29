@@ -28,7 +28,7 @@
   },
   "require-dev": {
     "codeception/codeception": "^4.1.4",
-    "codeception/module-asserts": "^1.1.1",
+    "codeception/module-asserts": "^1.2.1",
     "codeception/module-cli": "^1.0.2",
     "codeception/module-filesystem": "^1.0.2",
     "doctrine/coding-standard": "^7.0.2",
