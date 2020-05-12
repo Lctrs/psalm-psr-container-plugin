@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5f1964cfdc6f38a63f79ed39c0e46db",
+    "content-hash": "a57bff0e6b43faf6cbd69ede68484e5e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -5145,16 +5145,16 @@
         },
         {
             "name": "weirdan/codeception-psalm-module",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/weirdan/codeception-psalm-module.git",
-                "reference": "3edfae6ad449d8e74329b5cafa9061fcb01e4bf8"
+                "reference": "206199e196895076d626c6a6bf85d1369c57626c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/weirdan/codeception-psalm-module/zipball/3edfae6ad449d8e74329b5cafa9061fcb01e4bf8",
-                "reference": "3edfae6ad449d8e74329b5cafa9061fcb01e4bf8",
+                "url": "https://api.github.com/repos/weirdan/codeception-psalm-module/zipball/206199e196895076d626c6a6bf85d1369c57626c",
+                "reference": "206199e196895076d626c6a6bf85d1369c57626c",
                 "shasum": ""
             },
             "require": {
@@ -5192,7 +5192,7 @@
                 "psalm",
                 "psalm-plugin"
             ],
-            "time": "2020-05-04T01:24:56+00:00"
+            "time": "2020-05-08T22:15:55+00:00"
         }
     ],
     "aliases": [],
