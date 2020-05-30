@@ -45,7 +45,7 @@
     "phpstan/phpstan-strict-rules": "^0.12.2",
     "phpunit/phpunit": "^8.5.5",
     "psalm/plugin-phpunit": "^0.10.1",
-    "weirdan/codeception-psalm-module": "^0.7.1"
+    "weirdan/codeception-psalm-module": "^0.7.2"
   },
   "config": {
     "preferred-install": "dist",
