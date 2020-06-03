@@ -10,7 +10,8 @@ code-coverage: vendor ## Collects coverage from running unit tests with phpunit/
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist --coverage-text
 
 .PHONY: coding-standards
-coding-standards: vendor ## Fixes code style issues with doctrine/coding-standard
+coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-normalize, lints YAML files with yamllint and fixes code style issues with squizlabs/php_codesniffer
+	composer normalize
 	yamllint -c .yamllint.yaml --strict .
 	mkdir -p .build/php_codesniffer
 	vendor/bin/phpcbf
@@ -55,4 +56,3 @@ tests: vendor ## Runs unit tests with phpunit/phpunit and integration tests with
 vendor: composer.json composer.lock
 	composer validate --strict
 	composer install --no-interaction --no-progress --no-suggest
-	composer normalize
