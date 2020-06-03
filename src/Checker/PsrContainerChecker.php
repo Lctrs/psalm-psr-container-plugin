@@ -14,6 +14,7 @@ use Psalm\StatementsSource;
 use Psalm\Type\Atomic\TNamedObject;
 use Psalm\Type\Union;
 use Psr\Container\ContainerInterface;
+
 use function explode;
 
 /**
@@ -34,7 +35,7 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
         Codebase $codebase,
         array &$file_replacements = [],
         ?Union &$return_type_candidate = null
-    ) : void {
+    ): void {
         if (! $expr instanceof MethodCall || $return_type_candidate === null) {
             return;
         }
@@ -45,7 +46,8 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             return;
         }
 
-        if ($className !== ContainerInterface::class
+        if (
+            $className !== ContainerInterface::class
             && ! $codebase->classImplements($className, ContainerInterface::class)
         ) {
             return;

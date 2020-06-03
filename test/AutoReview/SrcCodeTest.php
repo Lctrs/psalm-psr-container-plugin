@@ -16,7 +16,7 @@ final class SrcCodeTest extends TestCase
 {
     use Helper;
 
-    public function testSrcClassesHaveUnitTests() : void
+    public function testSrcClassesHaveUnitTests(): void
     {
         self::assertClassesHaveTests(
             __DIR__ . '/../../src/',

@@ -25,7 +25,7 @@ final class PsrContainerCheckerTest extends TestCase
 {
     private const METHOD_ID = 'Psr\Container\ContainerInterface::get';
 
-    public function testItDoesNothingIfExprIsNotAMethodCall() : void
+    public function testItDoesNothingIfExprIsNotAMethodCall(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -45,7 +45,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfReturnTypeCandidateIsNull() : void
+    public function testItDoesNothingIfReturnTypeCandidateIsNull(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = null;
@@ -65,7 +65,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertNull($returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfMethodNameIsNotGet() : void
+    public function testItDoesNothingIfMethodNameIsNotGet(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -85,7 +85,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfClassNameIsNotAContainerInterface() : void
+    public function testItDoesNothingIfClassNameIsNotAContainerInterface(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -105,7 +105,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfThereIsNoArg() : void
+    public function testItDoesNothingIfThereIsNoArg(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -128,7 +128,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfArgValueIsNotAClassConstFetch() : void
+    public function testItDoesNothingIfArgValueIsNotAClassConstFetch(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -156,7 +156,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItDoesNothingIfItDoesNotHaveAResolvedName() : void
+    public function testItDoesNothingIfItDoesNotHaveAResolvedName(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
@@ -189,7 +189,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertSame($baseReturnType, $returnTypeCandidate);
     }
 
-    public function testItSetsTheReturnTypeAsAUnionWithFetchedClass() : void
+    public function testItSetsTheReturnTypeAsAUnionWithFetchedClass(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = new Union([new TMixed()]);
@@ -210,7 +210,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertTrue((new Union([new TNamedObject('Abracadabra')]))->equals($returnTypeCandidate));
     }
 
-    public function testItSetsTheReturnTypeAsAUnionWithFetchedClassWithContainerImplementingContainerInterface() : void
+    public function testItSetsTheReturnTypeAsAUnionWithFetchedClassWithContainerImplementingContainerInterface(): void
     {
         $fileReplacements    = [];
         $returnTypeCandidate = new Union([new TMixed()]);
@@ -236,7 +236,7 @@ final class PsrContainerCheckerTest extends TestCase
         self::assertTrue((new Union([new TNamedObject('Abracadabra')]))->equals($returnTypeCandidate));
     }
 
-    private function getMethodCall() : MethodCall
+    private function getMethodCall(): MethodCall
     {
         return new MethodCall(
             new Variable('dummy'),

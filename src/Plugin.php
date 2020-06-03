@@ -8,6 +8,7 @@ use Lctrs\PsalmPsrContainerPlugin\Checker\PsrContainerChecker;
 use Psalm\Plugin\PluginEntryPointInterface;
 use Psalm\Plugin\RegistrationInterface;
 use SimpleXMLElement;
+
 use function class_exists;
 
 final class Plugin implements PluginEntryPointInterface

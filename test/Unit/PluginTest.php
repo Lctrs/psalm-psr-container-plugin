@@ -10,7 +10,7 @@ use Psalm\Plugin\RegistrationInterface;
 
 final class PluginTest extends TestCase
 {
-    public function testItRegistersHook() : void
+    public function testItRegistersHook(): void
     {
         $api = $this->prophesize(RegistrationInterface::class);
         $api->registerHooksFromClass('Lctrs\PsalmPsrContainerPlugin\Checker\PsrContainerChecker')->shouldBeCalledOnce();
