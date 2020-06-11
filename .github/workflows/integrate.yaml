@@ -395,14 +395,14 @@ jobs:
         github.event.action == 'reopened' ||
         github.event.action == 'synchronize'
       ) && (
-        (github.actor == 'dependabot-preview[bot]' && startsWith(github.event.pull_request.title, 'Build(deps-dev)')) ||
+        (github.actor == 'dependabot[bot]' && startsWith(github.event.pull_request.title, 'Build(deps-dev)')) ||
         (github.actor == 'lctrs-bot' && github.event.pull_request.title == 'Enhancement: Update license year') ||
         (github.actor == 'Lctrs' && contains(github.event.pull_request.labels.*.name, 'merge'))
       )
 
     steps:
       - name: "Request review from @lctrs-bot"
-        uses: "actions/github-script@v1"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
@@ -421,7 +421,7 @@ jobs:
             })
 
       - name: "Assign @lctrs-bot"
-        uses: "actions/github-script@v1"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
@@ -440,7 +440,7 @@ jobs:
             })
 
       - name: "Approve pull request"
-        uses: "actions/github-script@v1"
+        uses: "actions/github-script@v2"
         if: "github.actor != 'lctrs-bot'"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
@@ -456,7 +456,7 @@ jobs:
             })
 
       - name: "Merge pull request"
-        uses: "actions/github-script@v1"
+        uses: "actions/github-script@v2"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
