@@ -19,7 +19,7 @@ We are using [`doctrine/coding-standard`](https://github.com/doctrine-coding-sta
 
 Run
 
-```
+```sh
 $ make coding-standards
 ```
 
@@ -31,7 +31,7 @@ We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/Com
 
 Run
 
-```
+```sh
 $ make dependency-analysis
 ```
 
@@ -43,7 +43,7 @@ We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo
 
 Run
 
-```
+```sh
 $ make static-code-analysis
 ```
 
@@ -53,7 +53,7 @@ We are also using the baseline features of [`phpstan/phpstan`](https://medium.co
 
 Run
 
-```
+```sh
 $ make static-code-analysis-baseline
 ```
 
@@ -67,7 +67,7 @@ We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) a
 
 Run
 
-```
+```sh
 $ make tests
 ```
 
@@ -79,7 +79,7 @@ We are using [`infection/infection`](https://github.com/infection/infection) to 
 
 Enable `pcov` or `Xdebug` and run
 
-```
+```sh
 $ make mutation-tests
 ```
 
@@ -89,7 +89,7 @@ to run mutation tests.
 
 Run
 
-```
+```sh
 $ make
 ```
 
@@ -99,7 +99,7 @@ to enforce coding standards, run a dependency analysis, run a static code analys
 
 :bulb: Run
 
-```
+```sh
 $ make help
 ```
 
