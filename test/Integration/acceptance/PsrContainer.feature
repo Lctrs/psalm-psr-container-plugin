@@ -91,5 +91,5 @@ Feature: PsrContainer
     When I run psalm
     Then I see these errors
       | Type            | Message                                          |
-      | UndefinedMethod | Method SomeService::unknownmethod does not exist |
+      | UndefinedMethod | Method SomeService::unknownMethod does not exist |
     And I see no other errors
