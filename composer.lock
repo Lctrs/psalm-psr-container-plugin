@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "036e0e56ea1d7daa882de981c2618722",
+    "content-hash": "6c643226e8c9cfaf589e933e2b745837",
     "packages": [
         {
             "name": "amphp/amp",
@@ -5836,16 +5836,16 @@
         },
         {
             "name": "weirdan/codeception-psalm-module",
-            "version": "0.7.3",
+            "version": "0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/weirdan/codeception-psalm-module.git",
-                "reference": "7042c6b438630647ac34e29252d00f567a1051d6"
+                "reference": "f23b4f80e89231949c37a5b320b97644d66e297d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/weirdan/codeception-psalm-module/zipball/7042c6b438630647ac34e29252d00f567a1051d6",
-                "reference": "7042c6b438630647ac34e29252d00f567a1051d6",
+                "url": "https://api.github.com/repos/weirdan/codeception-psalm-module/zipball/f23b4f80e89231949c37a5b320b97644d66e297d",
+                "reference": "f23b4f80e89231949c37a5b320b97644d66e297d",
                 "shasum": ""
             },
             "require": {
@@ -5859,7 +5859,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0",
                 "squizlabs/php_codesniffer": "^3.4",
-                "vimeo/psalm": "^3.7.0"
+                "vimeo/psalm": "^3.7.0 || dev-master"
             },
             "type": "codeception-module",
             "autoload": {
@@ -5883,7 +5883,7 @@
                 "psalm",
                 "psalm-plugin"
             ],
-            "time": "2020-06-18T22:55:34+00:00"
+            "time": "2020-06-21T14:11:46+00:00"
         }
     ],
     "aliases": [],
