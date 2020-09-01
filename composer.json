@@ -24,7 +24,7 @@
     "php": "^7.2.9",
     "nikic/php-parser": "^4.6.0",
     "psr/container": "^1.0.0",
-    "vimeo/psalm": "^3.13.1"
+    "vimeo/psalm": "^3.14.2"
   },
   "require-dev": {
     "codeception/codeception": "^4.1.7",
