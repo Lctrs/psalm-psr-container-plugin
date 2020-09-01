@@ -34,7 +34,7 @@
     "doctrine/coding-standard": "^8.1.0",
     "ergebnis/composer-normalize": "^2.6.1",
     "ergebnis/license": "^1.1.0",
-    "ergebnis/test-util": "^1.0.0",
+    "ergebnis/test-util": "^1.1.0",
     "infection/infection": "^0.15.3",
     "jangregor/phpstan-prophecy": "^0.8.0",
     "maglnet/composer-require-checker": "^2.1.0",
