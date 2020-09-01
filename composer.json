@@ -27,7 +27,7 @@
     "vimeo/psalm": "^3.13.1"
   },
   "require-dev": {
-    "codeception/codeception": "^4.1.6",
+    "codeception/codeception": "^4.1.7",
     "codeception/module-asserts": "^1.2.1",
     "codeception/module-cli": "^1.0.2",
     "codeception/module-filesystem": "^1.0.2",
