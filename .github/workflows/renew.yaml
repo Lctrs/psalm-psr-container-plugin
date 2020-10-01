@@ -55,7 +55,7 @@ jobs:
         run: "php update-license.php"
 
       - name: "Open pull request updating license year"
-        uses: "gr2m/create-or-update-pull-request-action@v1.2.10"
+        uses: "gr2m/create-or-update-pull-request-action@v1.3.0"
         with:
           author: "${{ env.LCTRS_BOT_NAME }} <${{ env.LCTRS_BOT_EMAIL }}>"
           branch: "feature/license-year"
