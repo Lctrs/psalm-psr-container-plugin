@@ -13,12 +13,9 @@ use function class_exists;
 
 final class Plugin implements PluginEntryPointInterface
 {
-    /**
-     * @inheritDoc
-     */
-    public function __invoke(RegistrationInterface $api, ?SimpleXMLElement $config = null)
+    public function __invoke(RegistrationInterface $registration, ?SimpleXMLElement $config = null): void
     {
         class_exists(PsrContainerChecker::class, true);
-        $api->registerHooksFromClass(PsrContainerChecker::class);
+        $registration->registerHooksFromClass(PsrContainerChecker::class);
     }
 }
