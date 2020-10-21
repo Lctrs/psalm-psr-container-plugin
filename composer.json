@@ -21,10 +21,11 @@
     }
   ],
   "require": {
-    "php": "^7.2.9",
+    "php": "^7.3.0",
+    "ext-simplexml": "*",
     "nikic/php-parser": "^4.10.2",
     "psr/container": "^1.0.0",
-    "vimeo/psalm": "^3.17"
+    "vimeo/psalm": "^4.0.1"
   },
   "require-dev": {
     "codeception/codeception": "^4.1.8",
@@ -44,7 +45,7 @@
     "phpstan/phpstan-phpunit": "^0.12.16",
     "phpstan/phpstan-strict-rules": "^0.12.5",
     "phpunit/phpunit": "^8.5.8",
-    "psalm/plugin-phpunit": "^0.12.2",
+    "psalm/plugin-phpunit": "^0.13.0",
     "weirdan/codeception-psalm-module": "^0.9.1"
   },
   "config": {
