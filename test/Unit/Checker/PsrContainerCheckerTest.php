@@ -31,7 +31,21 @@ final class PsrContainerCheckerTest extends TestCase
         $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
 
         PsrContainerChecker::afterMethodCallAnalysis(
-            $this->createStub(StaticCall::class),
+            new StaticCall(
+                new Variable('dummy'),
+                'get',
+                [
+                    new Arg(
+                        new ClassConstFetch(
+                            new Name(
+                                SomeService::class,
+                                ['resolvedName' => new Name('Abracadabra')]
+                            ),
+                            'class'
+                        )
+                    ),
+                ]
+            ),
             self::METHOD_ID,
             self::METHOD_ID,
             self::METHOD_ID,
