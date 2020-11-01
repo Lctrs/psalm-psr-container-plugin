@@ -37,7 +37,7 @@
     "ergebnis/license": "^1.1.0",
     "ergebnis/test-util": "^1.3.0",
     "infection/infection": "^0.17.5",
-    "jangregor/phpstan-prophecy": "^0.8.0",
+    "jangregor/phpstan-prophecy": "^0.8.1",
     "maglnet/composer-require-checker": "^2.1.0",
     "phpstan/extension-installer": "^1.0.5",
     "phpstan/phpstan": "^0.12.50",
