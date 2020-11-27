@@ -27,10 +27,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2.3.3"
+        uses: "actions/checkout@v2.3.4"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.7.0"
+        uses: "shivammathur/setup-php@2.9.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -40,7 +40,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.2"
+        uses: "actions/cache@v2.1.3"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -55,7 +55,7 @@ jobs:
         run: "php update-license.php"
 
       - name: "Open pull request updating license year"
-        uses: "gr2m/create-or-update-pull-request-action@v1.3.0"
+        uses: "gr2m/create-or-update-pull-request-action@v1.3.1"
         with:
           author: "${{ env.LCTRS_BOT_NAME }} <${{ env.LCTRS_BOT_EMAIL }}>"
           branch: "feature/license-year"
