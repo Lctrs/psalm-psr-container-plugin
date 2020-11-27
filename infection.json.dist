@@ -10,5 +10,6 @@
       "src"
     ]
   },
-  "timeout": 10
+  "timeout": 10,
+  "tmpDir": ".build/infection/"
 }

@@ -13,6 +13,7 @@ use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psalm\Codebase;
 use Psalm\Context;
 use Psalm\StatementsSource;
@@ -23,6 +24,8 @@ use Psr\Container\ContainerInterface;
 
 final class PsrContainerCheckerTest extends TestCase
 {
+    use ProphecyTrait;
+
     private const METHOD_ID = 'Psr\Container\ContainerInterface::get';
 
     public function testItDoesNothingIfExprIsNotAMethodCall(): void
