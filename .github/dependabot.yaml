@@ -12,7 +12,7 @@ updates:
     open-pull-requests-limit: 10
     package-ecosystem: "composer"
     schedule:
-      interval: "monthly"
+      interval: "daily"
     versioning-strategy: "increase"
 
   - commit-message:
@@ -24,4 +24,4 @@ updates:
     open-pull-requests-limit: 10
     package-ecosystem: "github-actions"
     schedule:
-      interval: "monthly"
+      interval: "daily"
