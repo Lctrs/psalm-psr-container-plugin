@@ -23,7 +23,7 @@
   "require": {
     "php": "^7.3.0 || ^8.0.0",
     "ext-simplexml": "*",
-    "nikic/php-parser": "^4.10.2",
+    "nikic/php-parser": "^4.10.3",
     "psr/container": "^1.0.0",
     "vimeo/psalm": "^4.3.0"
   },
