@@ -20,7 +20,13 @@ $ composer require --dev lctrs/psalm-psr-container-plugin
 
 ## Usage
 
-:bulb: This is a great place for showing a few usage examples!
+Run
+
+```
+$ vendor/bin/psalm-plugin enable lctrs/psalm-psr-container-plugin
+```
+
+to enable the plugin.
 
 ## Changelog
 
