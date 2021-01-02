@@ -1,8 +1,8 @@
 # psalm-psr-container-plugin
 
-[![Integrate](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Integrate/badge.svg?branch=master)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
-[![Release](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Release/badge.svg?branch=master)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
-[![Renew](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Renew/badge.svg?branch=master)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
+[![Integrate](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Integrate/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
+[![Release](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Release/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
+[![Renew](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Renew/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 
 [![Code Coverage](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin)
 [![Type Coverage](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin/coverage.svg)](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin)
