@@ -7,15 +7,13 @@ on: # yamllint disable-line rule:truthy
     - cron: "1 0 1 1 *"
 
 env:
-  LCTRS_BOT_EMAIL: "shurtmaiden@gmail.com"
-  LCTRS_BOT_NAME: "lctrs-bot"
   PHP_EXTENSIONS: "mbstring"
 
 jobs:
   license:
     name: "License"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-20.04"
 
     strategy:
       matrix:
@@ -28,6 +26,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          token: "${{ secrets.LCTRS_BOT_TOKEN }}"
 
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.9.0"
@@ -54,17 +54,10 @@ jobs:
       - name: "Run update license script"
         run: "php update-license.php"
 
-      - name: "Open pull request updating license year"
-        uses: "gr2m/create-or-update-pull-request-action@v1.3.3"
+      - name: "Commit modified files"
+        uses: "stefanzweifel/git-auto-commit-action@v4.8.0"
         with:
-          author: "${{ env.LCTRS_BOT_NAME }} <${{ env.LCTRS_BOT_EMAIL }}>"
-          branch: "feature/license-year"
-          body: |
-            This PR
-
-            * [x] updates the license year
-          commit-message: "Enhancement: Update license year"
-          path: "."
-          title: "Enhancement: Update license year"
-        env:
-          GITHUB_TOKEN: "${{ secrets.LCTRS_BOT_TOKEN }}"
+          commit_author: "lctrs-bot <bot@prmntr.me>"
+          commit_message: "license: update year"
+          commit_user_email: "bot@prmntr.me"
+          commit_user_name: "lctrs-bot"
