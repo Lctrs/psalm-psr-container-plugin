@@ -9,16 +9,13 @@ on: # yamllint disable-line rule:truthy
       - "master"
 
 env:
-  LCTRS_BOT_NAME: "lctrs-bot"
-  MIN_COVERED_MSI: 94
-  MIN_MSI: 94
   PHP_EXTENSIONS: "mbstring"
 
 jobs:
   coding-standards:
     name: "Coding Standards"
 
-    runs-on: "ubuntu-latest"
+    runs-on: "ubuntu-20.04"
 
     strategy:
       matrix:
@@ -336,7 +333,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run mutation tests with pcov and infection/infection"
-        run: "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=${{ env.MIN_COVERED_MSI }} --min-msi=${{ env.MIN_MSI }}"
+        run: "vendor/bin/infection --configuration=infection.json.dist"
 
   merge:
     name: "Merge"
@@ -360,12 +357,11 @@ jobs:
       ) && (
         (github.actor == 'dependabot[bot]' && startsWith(github.event.pull_request.title, 'composer(deps-dev)')) ||
         (github.actor == 'dependabot[bot]' && startsWith(github.event.pull_request.title, 'github-actions(deps)')) ||
-        (github.actor == 'lctrs-bot' && github.event.pull_request.title == 'Enhancement: Update license year') ||
         (github.actor == 'Lctrs' && contains(github.event.pull_request.labels.*.name, 'merge'))
       )
 
     steps:
-      - name: "Request review from @${{ env.LCTRS_BOT_NAME }}"
+      - name: "Request review from @lctrs-bot"
         uses: "actions/github-script@v3.1"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
@@ -374,17 +370,17 @@ jobs:
             const repository = context.repo
 
             const reviewers = [
-              "${{ env.LCTRS_BOT_NAME }}",
+              "lctrs-bot",
             ]
 
             await github.pulls.requestReviewers({
-                owner: repository.owner,
-                pull_number: pullRequest.number,
-                repo: repository.repo,
-                reviewers: reviewers,
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+              reviewers: reviewers,
             })
 
-      - name: "Assign @${{ env.LCTRS_BOT_NAME }}"
+      - name: "Assign @lctrs-bot"
         uses: "actions/github-script@v3.1"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
@@ -393,7 +389,7 @@ jobs:
             const repository = context.repo
 
             const assignees = [
-              "${{ env.LCTRS_BOT_NAME }}",
+              "lctrs-bot",
             ]
 
             await github.issues.addAssignees({
@@ -405,7 +401,6 @@ jobs:
 
       - name: "Approve pull request"
         uses: "actions/github-script@v3.1"
-        if: "github.actor != '${{ env.LCTRS_BOT_NAME }}'"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
