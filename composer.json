@@ -33,7 +33,7 @@
     "codeception/module-cli": "^1.1.1",
     "codeception/module-filesystem": "^1.0.3",
     "doctrine/coding-standard": "^8.2.0",
-    "ergebnis/composer-normalize": "^2.13.2",
+    "ergebnis/composer-normalize": "^2.13.3",
     "ergebnis/license": "^1.1.0",
     "ergebnis/test-util": "^1.4.0",
     "infection/infection": "^0.18.2",
