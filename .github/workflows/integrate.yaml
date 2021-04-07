@@ -85,7 +85,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.4"
+          - "8.0"
 
         dependencies:
           - "locked"
@@ -100,7 +100,6 @@ jobs:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
-          tools: "phive"
 
       - name: "Determine composer cache directory"
         uses: "./.github/actions/composer/composer/determine-cache-directory"
@@ -109,7 +108,7 @@ jobs:
         uses: "actions/cache@v2.1.4"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock', '.tools/composer-require-checker/composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
@@ -117,11 +116,14 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Install tools with phive"
-        run: "phive --no-progress install --trust-gpg-keys D2CCAC42F6295E7D"
+      - name: "Install maglnet/composer-require-checker with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+          working-directory: ".tools/composer-require-checker/"
 
       - name: "Run maglnet/composer-require-checker"
-        run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
+        run: ".tools/composer-require-checker/vendor/bin/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
@@ -263,7 +265,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.10.0"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -285,7 +287,7 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Collect code coverage with pcov and phpunit/phpunit"
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist --coverage-clover=.build/phpunit/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
@@ -313,7 +315,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.10.0"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -324,7 +326,7 @@ jobs:
         uses: "actions/cache@v2.1.4"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock', '.tools/infection/composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
@@ -332,8 +334,16 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run mutation tests with pcov and infection/infection"
-        run: "vendor/bin/infection --configuration=infection.json.dist"
+      - name: "Install infection/infection with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+          working-directory: ".tools/infection/"
+
+      - name: "Run mutation tests with Xdebug and infection/infection"
+        run: ".tools/infection/vendor/bin/infection --configuration=infection.json.dist"
+        env:
+          STRYKER_DASHBOARD_API_KEY: "${{ secrets.STRYKER_DASHBOARD_API_KEY }}"
 
   merge:
     name: "Merge"

@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 
 dependencies="${COMPOSER_INSTALL_DEPENDENCIES}"
+working_directory="${COMPOSER_WORKING_DIRECTORY}"
 
 if [[ ${dependencies} == "lowest" ]]; then
-  composer update --no-interaction --no-progress --prefer-lowest
+  composer update --no-interaction --no-progress --prefer-lowest --working-dir="${working_directory}"
 
   exit $?
 fi
 
 if [[ ${dependencies} == "locked" ]]; then
-  composer install --no-interaction --no-progress
+  composer install --no-interaction --no-progress --working-dir="${working_directory}"
 
   exit $?
 fi
 
 if [[ ${dependencies} == "highest" ]]; then
-  composer update --no-interaction --no-progress
+  composer update --no-interaction --no-progress --working-dir="${working_directory}"
 
   exit $?
 fi

@@ -10,6 +10,10 @@ inputs:
   dependencies:
     description: "Which dependencies to install, one of \"lowest\", \"locked\", \"highest\""
     required: true
+  working-directory:
+    default: "."
+    description: "Directory in which composer will run, defaults to current directory"
+    required: false
 
 runs:
   using: "composite"
@@ -20,3 +24,4 @@ runs:
       run: "${{ github.action_path }}/run.sh"
       env:
         COMPOSER_INSTALL_DEPENDENCIES: "${{ inputs.dependencies }}"
+        COMPOSER_WORKING_DIRECTORY: "${{ inputs.working-directory }}"

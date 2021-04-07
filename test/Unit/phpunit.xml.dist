@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/schema/9.2.xsd"
+    xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/phpunit.xsd"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutCoversAnnotation="true"
     beStrictAboutOutputDuringTests="true"
@@ -22,14 +23,14 @@
     stopOnSkipped="false"
     verbose="true"
 >
+    <coverage includeUncoveredFiles="true" processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">../../src/</directory>
+        </include>
+    </coverage>
     <testsuites>
         <testsuite name="Unit Tests">
             <directory>.</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../../src/</directory>
-        </whitelist>
-    </filter>
 </phpunit>

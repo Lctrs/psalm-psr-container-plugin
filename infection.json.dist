@@ -1,6 +1,9 @@
 {
   "ignoreMsiWithNoMutations": true,
   "logs": {
+    "badge": {
+      "branch": "master"
+    },
     "text": ".build/infection/infection-log.txt"
   },
   "minCoveredMsi": 94,
