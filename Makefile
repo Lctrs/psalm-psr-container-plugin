@@ -15,17 +15,23 @@ coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-norm
 	vendor/bin/phpcs
 
 .PHONY: dependency-analysis
-dependency-analysis: phive ## Runs a dependency analysis with maglnet/composer-require-checker
-	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
+dependency-analysis: vendor dependency-analysis-vendor ## Runs a dependency analysis with maglnet/composer-require-checker
+	.tools/composer-require-checker/vendor/bin/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
+
+dependency-analysis-vendor: .tools/infection/composer.json .tools/infection/composer.lock
+	composer install --no-interaction --no-progress --working-dir=".tools/composer-require-checker/"
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: mutation-tests
-mutation-tests: vendor ## Runs mutation tests with infection/infection
+mutation-tests: vendor mutation-tests-vendor ## Runs mutation tests with infection/infection
 	mkdir -p .build/infection
-	vendor/bin/infection --configuration=infection.json.dist
+	.tools/infection/vendor/bin/infection --configuration=infection.json.dist
+
+mutation-tests-vendor: .tools/infection/composer.json .tools/infection/composer.lock
+	composer install --no-interaction --no-progress --working-dir=".tools/infection/"
 
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
@@ -52,7 +58,4 @@ tests: vendor ## Runs unit tests with phpunit/phpunit and integration tests with
 
 vendor: composer.json composer.lock
 	composer validate --strict
-	composer install --no-interaction --no-progress --no-suggest
-
-phive: .phive/phars.xml
-	phive install
+	composer install --no-interaction --no-progress

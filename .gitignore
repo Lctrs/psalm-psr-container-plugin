@@ -1,6 +1,5 @@
 /.build/
-/.phive/*
-!/.phive/phars.xml
+/.tools/*/vendor/
 /test/*/phpunit.xml
 /vendor/
 /codeception.yml
