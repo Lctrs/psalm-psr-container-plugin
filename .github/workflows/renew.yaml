@@ -55,7 +55,7 @@ jobs:
         run: "php update-license.php"
 
       - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v4.9.2"
+        uses: "stefanzweifel/git-auto-commit-action@v4.10.0"
         with:
           commit_author: "lctrs-bot <bot@prmntr.me>"
           commit_message: "license: update year"
