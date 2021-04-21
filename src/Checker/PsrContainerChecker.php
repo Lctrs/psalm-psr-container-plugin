@@ -7,15 +7,21 @@ namespace Lctrs\PsalmPsrContainerPlugin\Checker;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\Variable;
 use Psalm\Codebase;
 use Psalm\Context;
 use Psalm\Plugin\Hook\AfterMethodCallAnalysisInterface;
 use Psalm\StatementsSource;
+use Psalm\Type\Atomic;
+use Psalm\Type\Atomic\TClassString;
 use Psalm\Type\Atomic\TNamedObject;
+use Psalm\Type\Atomic\TTemplateParamClass;
 use Psalm\Type\Union;
 use Psr\Container\ContainerInterface;
 
+use function count;
 use function explode;
+use function is_string;
 
 /**
  * @internal
@@ -54,7 +60,26 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
         }
 
         $arg = $expr->args[0] ?? null;
-        if ($arg === null || ! $arg->value instanceof ClassConstFetch) {
+        if ($arg === null) {
+            return;
+        }
+
+        if (! $arg->value instanceof ClassConstFetch) {
+            if (! $arg->value instanceof Variable || ! is_string($arg->value->name)) {
+                return;
+            }
+
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $variableType = $context->vars_in_scope['$' . $arg->value->name] ?? null;
+            if (! $variableType instanceof Union) {
+                return;
+            }
+
+            $candidate = self::handleVariable($variableType);
+            if ($candidate !== null) {
+                $return_type_candidate = $candidate;
+            }
+
             return;
         }
 
@@ -68,5 +93,36 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
                 (string) $class->getAttribute('resolvedName')
             ),
         ]);
+    }
+
+    // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+    protected static function handleVariable(Union $variableType): ?Union
+    {
+        $hasMixed = false;
+        /** @var list<Atomic> $types */
+        $types = [];
+        foreach ($variableType->getAtomicTypes() as $type) {
+            if ($type instanceof TTemplateParamClass) {
+                $types[] = new Atomic\TTemplateParam(
+                    $type->param_name,
+                    new Union([$type->as_type ?? new TNamedObject($type->as)]),
+                    $type->defining_class
+                );
+            } elseif ($type instanceof TClassString && $type->as_type !== null) {
+                $types[] = $type->as_type;
+            } else {
+                if (! $hasMixed) {
+                    $types[] = new Atomic\TMixed();
+                }
+
+                $hasMixed = true;
+            }
+        }
+
+        if (count($types) > 0) {
+            return new Union($types);
+        }
+
+        return null;
     }
 }
