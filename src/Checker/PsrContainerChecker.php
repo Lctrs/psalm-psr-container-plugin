@@ -19,7 +19,6 @@ use Psalm\Type\Atomic\TTemplateParamClass;
 use Psalm\Type\Union;
 use Psr\Container\ContainerInterface;
 
-use function count;
 use function explode;
 use function is_string;
 
@@ -76,7 +75,7 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             }
 
             $candidate = self::handleVariable($variableType);
-            if ($candidate !== null) {
+            if (! $candidate->isMixed()) {
                 $return_type_candidate = $candidate;
             }
 
@@ -96,9 +95,8 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
     }
 
     // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    protected static function handleVariable(Union $variableType): ?Union
+    private static function handleVariable(Union $variableType): Union
     {
-        $hasMixed = false;
         /** @var list<Atomic> $types */
         $types = [];
         foreach ($variableType->getAtomicTypes() as $type) {
@@ -111,18 +109,10 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             } elseif ($type instanceof TClassString && $type->as_type !== null) {
                 $types[] = $type->as_type;
             } else {
-                if (! $hasMixed) {
-                    $types[] = new Atomic\TMixed();
-                }
-
-                $hasMixed = true;
+                $types[] = new Atomic\TMixed();
             }
         }
 
-        if (count($types) > 0) {
-            return new Union($types);
-        }
-
-        return null;
+        return new Union($types);
     }
 }
