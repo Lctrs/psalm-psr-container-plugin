@@ -43,6 +43,34 @@ Feature: PsrContainer
         {
           $this->container->get(SomeService::class)->do();
         }
+
+       /**
+        * @param class-string<SomeService> $class
+        */
+        public function classString(string $class): SomeService {
+          return $this->container->get($class);
+        }
+
+       /**
+        * @template T
+        * @param class-string<T> $class
+        * @return T
+        */
+        public function templated(string $class) {
+          return $this->container->get($class);
+        }
+
+       /**
+        * @template T of SomeService
+        * @param T|class-string<T> $class
+        * @return SomeService
+        */
+        public function templatedOrStraightforward($class) {
+          if ($class instanceof SomeService) {
+             return $class;
+          }
+          return $this->container->get($class);
+        }
       }
       """
     When I run psalm
