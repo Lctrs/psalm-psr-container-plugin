@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "984d247c7a5e41c1093e986a406a6336",
+    "content-hash": "30c37ce74389b9fb105cf0d6e9d56d6c",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -2137,7 +2137,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4.0 || ^8.0.0"
+        "php": "^7.4.7 || ^8.0.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
