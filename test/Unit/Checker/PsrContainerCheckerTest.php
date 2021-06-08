@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Psalm\Codebase;
 use Psalm\Context;
+use Psalm\Plugin\EventHandler\Event\AfterMethodCallAnalysisEvent;
 use Psalm\StatementsSource;
 use Psalm\Type\Atomic\TMixed;
 use Psalm\Type\Atomic\TNamedObject;
@@ -30,10 +31,7 @@ final class PsrContainerCheckerTest extends TestCase
 
     public function testItDoesNothingIfExprIsNotAMethodCall(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             new StaticCall(
                 new Variable('dummy'),
                 'get',
@@ -55,19 +53,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItDoesNothingIfReturnTypeCandidateIsNull(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = null;
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             self::METHOD_ID,
             self::METHOD_ID,
@@ -75,19 +74,18 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            null
         );
 
-        self::assertNull($returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        self::assertNull($event->getReturnTypeCandidate());
     }
 
     public function testItDoesNothingIfMethodNameIsNotGet(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             'Psr\Container\ContainerInterface::notGet',
             'Psr\Container\ContainerInterface::notGet',
@@ -95,19 +93,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItDoesNothingIfClassNameIsNotAContainerInterface(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             'stdClass::get',
             'stdClass::get',
@@ -115,19 +114,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItDoesNothingIfThereIsNoArg(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             new MethodCall(
                 new Variable('dummy'),
                 'get'
@@ -138,19 +138,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItDoesNothingIfArgValueIsNotAClassConstFetch(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             new MethodCall(
                 new Variable('dummy'),
                 'get',
@@ -166,19 +167,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItDoesNothingIfItDoesNotHaveAResolvedName(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             new MethodCall(
                 new Variable('dummy'),
                 'get',
@@ -199,19 +201,20 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     public function testItSetsTheReturnTypeAsAUnionWithFetchedClass(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             self::METHOD_ID,
             self::METHOD_ID,
@@ -219,25 +222,25 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
         self::assertNotNull($returnTypeCandidate);
         self::assertTrue((new Union([new TNamedObject('Abracadabra')]))->equals($returnTypeCandidate));
     }
 
     public function testItSetsTheReturnTypeAsAUnionWithFetchedClassWithContainerImplementingContainerInterface(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = new Union([new TMixed()]);
-
         $codebase = $this->prophesize(Codebase::class);
         $codebase->classImplements(MyContainer::class, ContainerInterface::class)
             ->willReturn(true)
             ->shouldBeCalledOnce();
 
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             MyContainer::class . '::get',
             MyContainer::class . '::get',
@@ -245,10 +248,13 @@ final class PsrContainerCheckerTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $codebase->reveal(),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
         self::assertNotNull($returnTypeCandidate);
         self::assertTrue((new Union([new TNamedObject('Abracadabra')]))->equals($returnTypeCandidate));
     }
