@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Lctrs\PsalmPsrContainerPlugin\Checker;
 
-use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
-use Psalm\Codebase;
-use Psalm\Context;
-use Psalm\Plugin\Hook\AfterMethodCallAnalysisInterface;
-use Psalm\StatementsSource;
+use Psalm\Plugin\EventHandler\AfterMethodCallAnalysisInterface;
+use Psalm\Plugin\EventHandler\Event\AfterMethodCallAnalysisEvent;
 use Psalm\Type\Atomic;
 use Psalm\Type\Atomic\TClassString;
 use Psalm\Type\Atomic\TNamedObject;
@@ -27,25 +24,15 @@ use function is_string;
  */
 final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
 {
-    /**
-     * @inheritDoc
-     */
-    public static function afterMethodCallAnalysis(
-        Expr $expr,
-        string $method_id,
-        string $appearing_method_id,
-        string $declaring_method_id,
-        Context $context,
-        StatementsSource $statements_source,
-        Codebase $codebase,
-        array &$file_replacements = [],
-        ?Union &$return_type_candidate = null
-    ): void {
-        if (! $expr instanceof MethodCall || $return_type_candidate === null) {
+    public static function afterMethodCallAnalysis(AfterMethodCallAnalysisEvent $event): void
+    {
+        $expr = $event->getExpr();
+
+        if (! $expr instanceof MethodCall || $event->getReturnTypeCandidate() === null) {
             return;
         }
 
-        [$className, $methodName] = explode('::', $declaring_method_id);
+        [$className, $methodName] = explode('::', $event->getDeclaringMethodId());
 
         if ($methodName !== 'get') {
             return;
@@ -53,7 +40,7 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
 
         if (
             $className !== ContainerInterface::class
-            && ! $codebase->classImplements($className, ContainerInterface::class)
+            && ! $event->getCodebase()->classImplements($className, ContainerInterface::class)
         ) {
             return;
         }
@@ -68,15 +55,14 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
                 return;
             }
 
-            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $variableType = $context->vars_in_scope['$' . $arg->value->name] ?? null;
+            $variableType = $event->getContext()->vars_in_scope['$' . $arg->value->name] ?? null;
             if (! $variableType instanceof Union) {
                 return;
             }
 
             $candidate = self::handleVariable($variableType);
             if (! $candidate->isMixed()) {
-                $return_type_candidate = $candidate;
+                $event->setReturnTypeCandidate($candidate);
             }
 
             return;
@@ -87,14 +73,13 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             return;
         }
 
-        $return_type_candidate = new Union([
+        $event->setReturnTypeCandidate(new Union([
             new TNamedObject(
                 (string) $class->getAttribute('resolvedName')
             ),
-        ]);
+        ]));
     }
 
-    // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     private static function handleVariable(Union $variableType): Union
     {
         /** @var list<Atomic> $types */

@@ -13,6 +13,7 @@ use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Psalm\Codebase;
 use Psalm\Context;
+use Psalm\Plugin\EventHandler\Event\AfterMethodCallAnalysisEvent;
 use Psalm\StatementsSource;
 use Psalm\Type\Atomic\TClassString;
 use Psalm\Type\Atomic\TMixed;
@@ -32,10 +33,7 @@ class PsrContainerCheckerClassStringTest extends TestCase
 
     public function testItDoesNothingWithEmptyContext(): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = $baseReturnType = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             self::METHOD_ID,
             self::METHOD_ID,
@@ -43,11 +41,15 @@ class PsrContainerCheckerClassStringTest extends TestCase
             $this->createStub(Context::class),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
-        self::assertSame($baseReturnType, $returnTypeCandidate);
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
+        self::assertNotNull($returnTypeCandidate);
+        self::assertTrue($returnTypeCandidate->equals(new Union([new TMixed()])));
     }
 
     /**
@@ -55,10 +57,7 @@ class PsrContainerCheckerClassStringTest extends TestCase
      */
     public function testItSetsTheReturnTypeAsAUnionWithFetchedClass(Union $variableType, Union $expectedType): void
     {
-        $fileReplacements    = [];
-        $returnTypeCandidate = new Union([new TMixed()]);
-
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             self::METHOD_ID,
             self::METHOD_ID,
@@ -66,10 +65,13 @@ class PsrContainerCheckerClassStringTest extends TestCase
             $this->createContext($variableType),
             $this->createStub(StatementsSource::class),
             $this->createStub(Codebase::class),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
         self::assertNotNull($returnTypeCandidate);
         self::assertTrue($expectedType->equals($returnTypeCandidate));
 
@@ -88,15 +90,12 @@ class PsrContainerCheckerClassStringTest extends TestCase
         Union $variableType,
         Union $expectedType
     ): void {
-        $fileReplacements    = [];
-        $returnTypeCandidate = new Union([new TMixed()]);
-
         $codebase = $this->prophesize(Codebase::class);
         $codebase->classImplements(MyOtherContainer::class, ContainerInterface::class)
             ->willReturn(true)
             ->shouldBeCalledOnce();
 
-        PsrContainerChecker::afterMethodCallAnalysis(
+        $event = new AfterMethodCallAnalysisEvent(
             $this->getMethodCall(),
             MyOtherContainer::class . '::get',
             MyOtherContainer::class . '::get',
@@ -104,10 +103,13 @@ class PsrContainerCheckerClassStringTest extends TestCase
             $this->createContext($variableType),
             $this->createStub(StatementsSource::class),
             $codebase->reveal(),
-            $fileReplacements,
-            $returnTypeCandidate
+            [],
+            new Union([new TMixed()])
         );
 
+        PsrContainerChecker::afterMethodCallAnalysis($event);
+
+        $returnTypeCandidate = $event->getReturnTypeCandidate();
         self::assertNotNull($returnTypeCandidate);
         self::assertTrue($expectedType->equals($returnTypeCandidate));
 
