@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: "Add labels based on branch name"
-        uses: "actions/github-script@v5"
+        uses: "actions/github-script@v5.0.0"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
@@ -34,7 +34,7 @@ jobs:
             if (matches instanceof Array && branchPrefixLabels.hasOwnProperty(matches[1])) {
               const label = branchPrefixLabels[matches[1]]
 
-              github.issues.addLabels({
+              github.rest.issues.addLabels({
                 issue_number: pullRequest.number,
                 labels: [
                   label
