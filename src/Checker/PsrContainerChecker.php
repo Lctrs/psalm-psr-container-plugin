@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lctrs\PsalmPsrContainerPlugin\Checker;
 
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
@@ -46,7 +47,7 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
         }
 
         $arg = $expr->args[0] ?? null;
-        if ($arg === null) {
+        if (! $arg instanceof Arg) {
             return;
         }
 
