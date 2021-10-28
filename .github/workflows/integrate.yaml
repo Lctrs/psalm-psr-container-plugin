@@ -342,6 +342,6 @@ jobs:
           working-directory: ".tools/infection/"
 
       - name: "Run mutation tests with Xdebug and infection/infection"
-        run: ".tools/infection/vendor/bin/infection --configuration=infection.json.dist"
+        run: ".tools/infection/vendor/bin/infection --configuration=infection.json.dist --logger-github"
         env:
           STRYKER_DASHBOARD_API_KEY: "${{ secrets.STRYKER_DASHBOARD_API_KEY }}"
