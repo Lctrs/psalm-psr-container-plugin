@@ -15,10 +15,10 @@ coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-norm
 	vendor/bin/phpcs
 
 .PHONY: dependency-analysis
-dependency-analysis: vendor dependency-analysis-vendor ## Runs a dependency analysis with maglnet/composer-require-checker
+dependency-analysis: vendor .tools/composer-require-checker/vendor ## Runs a dependency analysis with maglnet/composer-require-checker
 	.tools/composer-require-checker/vendor/bin/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
 
-dependency-analysis-vendor: .tools/composer-require-checker/composer.json .tools/composer-require-checker/composer.lock
+.tools/composer-require-checker/vendor: .tools/composer-require-checker/composer.json .tools/composer-require-checker/composer.lock
 	composer install --no-interaction --no-progress --working-dir=".tools/composer-require-checker/"
 
 .PHONY: help
@@ -26,11 +26,11 @@ help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: mutation-tests
-mutation-tests: vendor mutation-tests-vendor ## Runs mutation tests with infection/infection
+mutation-tests: vendor .tools/infection/vendor ## Runs mutation tests with infection/infection
 	mkdir -p .build/infection
 	.tools/infection/vendor/bin/infection --configuration=infection.json.dist
 
-mutation-tests-vendor: .tools/infection/composer.json .tools/infection/composer.lock
+.tools/infection/vendor: .tools/infection/composer.json .tools/infection/composer.lock
 	composer install --no-interaction --no-progress --working-dir=".tools/infection/"
 
 .PHONY: static-code-analysis
