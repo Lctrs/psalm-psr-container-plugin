@@ -35,7 +35,6 @@
     "doctrine/coding-standard": "^9.0.0",
     "ergebnis/composer-normalize": "^2.16.0",
     "ergebnis/license": "^1.1.0",
-    "ergebnis/test-util": "^1.5.0",
     "jangregor/phpstan-prophecy": "^0.8.1",
     "phpspec/prophecy-phpunit": "^2.0.1",
     "phpstan/extension-installer": "^1.1.0",
