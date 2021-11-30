@@ -16,7 +16,7 @@
 Run
 
 ```sh
-$ composer require --dev lctrs/psalm-psr-container-plugin
+composer require --dev lctrs/psalm-psr-container-plugin
 ```
 
 ## Usage

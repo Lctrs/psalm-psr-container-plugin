@@ -21,7 +21,7 @@ We are using [`doctrine/coding-standard`](https://github.com/doctrine-coding-sta
 Run
 
 ```sh
-$ make coding-standards
+make coding-standards
 ```
 
 to automatically fix coding standard violations.
@@ -33,7 +33,7 @@ We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/Com
 Run
 
 ```sh
-$ make dependency-analysis
+make dependency-analysis
 ```
 
 to run a dependency analysis.
@@ -45,7 +45,7 @@ We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo
 Run
 
 ```sh
-$ make static-code-analysis
+make static-code-analysis
 ```
 
 to run a static code analysis.
@@ -55,7 +55,7 @@ We are also using the baseline features of [`phpstan/phpstan`](https://phpstan.o
 Run
 
 ```sh
-$ make static-code-analysis-baseline
+make static-code-analysis-baseline
 ```
 
 to regenerate the baselines in [`../phpstan-baseline.neon`](../phpstan-baseline.neon) and [`../psalm-baseline.xml`](../psalm-baseline.xml).
@@ -69,7 +69,7 @@ We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) a
 Run
 
 ```sh
-$ make tests
+make tests
 ```
 
 to run all the tests.
@@ -81,7 +81,7 @@ We are using [`infection/infection`](https://github.com/infection/infection) to 
 Enable `pcov` or `Xdebug` and run
 
 ```sh
-$ make mutation-tests
+make mutation-tests
 ```
 
 to run mutation tests.
@@ -91,7 +91,7 @@ to run mutation tests.
 Run
 
 ```sh
-$ make
+make
 ```
 
 to enforce coding standards, run a dependency analysis, run a static code analysis, and run tests!
@@ -101,7 +101,7 @@ to enforce coding standards, run a dependency analysis, run a static code analys
 :bulb: Run
 
 ```sh
-$ make help
+make help
 ```
 
 to display a list of available targets with corresponding descriptions.
