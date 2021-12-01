@@ -16,20 +16,28 @@ Feature: PsrContainer
         </plugins>
       </psalm>
       """
+    And I have the following code preamble
+      """
+      <?php
+
+      namespace Foo;
+
+      use Psr\Container\ContainerInterface;
+
+      class Bar
+      {
+        public const FQCN = self::class;
+        public const BAR = 'bar';
+
+        public function bar() : void {}
+      }
+
+      """
 
   Scenario: Asserting psalm recognizes return type of service got via 'ContainerInterface::get()'
     Given I have the following code
       """
-      <?php
-
-      use Psr\Container\ContainerInterface;
-
-      class SomeService
-      {
-        public function do() : void {}
-      }
-
-      class Dummy
+      class Foo
       {
         /** @var ContainerInterface */
         private $container;
@@ -39,36 +47,38 @@ Feature: PsrContainer
           $this->container = $container;
         }
 
-        public function dummy() : void
+        public function variable() : Bar
         {
-          $this->container->get(SomeService::class)->do();
-        }
+          $class = Bar::class;
 
-       /**
-        * @param class-string<SomeService> $class
-        */
-        public function classString(string $class): SomeService {
           return $this->container->get($class);
         }
 
-       /**
-        * @template T
-        * @param class-string<T> $class
-        * @return T
-        */
-        public function templated(string $class) {
+        public function classConstFetch() : Bar
+        {
+          return $this->container->get(Bar::class);
+        }
+
+        public function constFetch() : Bar
+        {
+          return $this->container->get(Bar::FQCN);
+        }
+
+        /**
+         * @param class-string<Bar> $class
+         */
+        public function classString(string $class) : Bar
+        {
           return $this->container->get($class);
         }
 
-       /**
-        * @template T of SomeService
-        * @param T|class-string<T> $class
-        * @return SomeService
-        */
-        public function templatedOrStraightforward($class) {
-          if ($class instanceof SomeService) {
-             return $class;
-          }
+        /**
+         * @template T
+         * @param class-string<T> $class
+         * @return T
+         */
+        public function templated(string $class)
+        {
           return $this->container->get($class);
         }
       }
@@ -79,15 +89,11 @@ Feature: PsrContainer
   Scenario: Asserting psalm recognizes return type of service got via a class implementing ContainerInterface
     Given I have the following code
       """
-      <?php
-
-      use Psr\Container\ContainerInterface;
-
       class MyContainer implements ContainerInterface
       {
         public function get($id)
         {
-          return 'something';
+          return new \stdClass();
         }
 
         public function has($id)
@@ -96,11 +102,7 @@ Feature: PsrContainer
         }
       }
 
-      class SomeService
-      {
-      }
-
-      class Dummy
+      class Foo
       {
         /** @var MyContainer */
         private $container;
@@ -110,14 +112,11 @@ Feature: PsrContainer
           $this->container = $container;
         }
 
-        public function dummy() : void
+        public function dummy() : Bar
         {
-          $this->container->get(SomeService::class)->unknownMethod();
+          return $this->container->get(Bar::class);
         }
       }
       """
     When I run psalm
-    Then I see these errors
-      | Type            | Message                                          |
-      | UndefinedMethod | Method SomeService::unknownMethod does not exist |
-    And I see no other errors
+    Then I see no errors

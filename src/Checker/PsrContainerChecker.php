@@ -5,20 +5,18 @@ declare(strict_types=1);
 namespace Lctrs\PsalmPsrContainerPlugin\Checker;
 
 use PhpParser\Node\Arg;
-use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\Variable;
 use Psalm\Plugin\EventHandler\AfterMethodCallAnalysisInterface;
 use Psalm\Plugin\EventHandler\Event\AfterMethodCallAnalysisEvent;
-use Psalm\Type\Atomic;
 use Psalm\Type\Atomic\TClassString;
+use Psalm\Type\Atomic\TLiteralClassString;
 use Psalm\Type\Atomic\TNamedObject;
+use Psalm\Type\Atomic\TTemplateParam;
 use Psalm\Type\Atomic\TTemplateParamClass;
 use Psalm\Type\Union;
 use Psr\Container\ContainerInterface;
 
 use function explode;
-use function is_string;
 
 /**
  * @internal
@@ -51,54 +49,44 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             return;
         }
 
-        if (! $arg->value instanceof ClassConstFetch) {
-            if (! $arg->value instanceof Variable || ! is_string($arg->value->name)) {
-                return;
-            }
-
-            $variableType = $event->getContext()->vars_in_scope['$' . $arg->value->name] ?? null;
-            if (! $variableType instanceof Union) {
-                return;
-            }
-
-            $candidate = self::handleVariable($variableType);
-            if (! $candidate->isMixed()) {
-                $event->setReturnTypeCandidate($candidate);
-            }
-
+        $type = $event->getStatementsSource()->getNodeTypeProvider()->getType($arg->value);
+        if ($type === null) {
             return;
         }
 
-        $class = $arg->value->class;
-        if (! $class->hasAttribute('resolvedName')) {
-            return;
-        }
+        $returnTypeCandidates = [];
+        foreach ($type->getAtomicTypes() as $atomicType) {
+            if ($atomicType instanceof TLiteralClassString) {
+                $returnTypeCandidates[] = new TNamedObject($atomicType->value);
 
-        $event->setReturnTypeCandidate(new Union([
-            new TNamedObject(
-                (string) $class->getAttribute('resolvedName')
-            ),
-        ]));
-    }
+                continue;
+            }
 
-    private static function handleVariable(Union $variableType): Union
-    {
-        /** @var list<Atomic> $types */
-        $types = [];
-        foreach ($variableType->getAtomicTypes() as $type) {
-            if ($type instanceof TTemplateParamClass) {
-                $types[] = new Atomic\TTemplateParam(
-                    $type->param_name,
-                    new Union([$type->as_type ?? new TNamedObject($type->as)]),
-                    $type->defining_class
+            if ($atomicType instanceof TTemplateParamClass) {
+                $returnTypeCandidates[] = new TTemplateParam(
+                    $atomicType->param_name,
+                    new Union([$atomicType->as_type ?? new TNamedObject($atomicType->as)]),
+                    $atomicType->defining_class
                 );
-            } elseif ($type instanceof TClassString && $type->as_type !== null) {
-                $types[] = $type->as_type;
-            } else {
-                $types[] = new Atomic\TMixed();
+
+                continue;
             }
+
+            if (! ($atomicType instanceof TClassString)) {
+                continue;
+            }
+
+            if ($atomicType->as_type === null) {
+                continue;
+            }
+
+            $returnTypeCandidates[] = $atomicType->as_type;
         }
 
-        return new Union($types);
+        if ($returnTypeCandidates === []) {
+            return;
+        }
+
+        $event->setReturnTypeCandidate(new Union($returnTypeCandidates));
     }
 }

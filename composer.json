@@ -35,8 +35,6 @@
     "doctrine/coding-standard": "^9.0.0",
     "ergebnis/composer-normalize": "^2.16.0",
     "ergebnis/license": "^1.1.0",
-    "jangregor/phpstan-prophecy": "^0.8.1",
-    "phpspec/prophecy-phpunit": "^2.0.1",
     "phpstan/extension-installer": "^1.1.0",
     "phpstan/phpstan": "^0.12.99",
     "phpstan/phpstan-deprecation-rules": "^0.12.6",
@@ -63,7 +61,6 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Lctrs\\PsalmPsrContainerPlugin\\Test\\AutoReview\\": "test/AutoReview/",
       "Lctrs\\PsalmPsrContainerPlugin\\Test\\Integration\\": "test/Integration/_support/",
       "Lctrs\\PsalmPsrContainerPlugin\\Test\\Unit\\": "test/Unit/"
     }
