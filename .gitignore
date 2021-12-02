@@ -3,6 +3,5 @@
 /test/*/phpunit.xml
 /vendor/
 /codeception.yml
-/infection.json
 /phpcs.xml
 /phpstan.neon

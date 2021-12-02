@@ -4,8 +4,6 @@
 [![Release](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Release/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 [![Renew](https://github.com/Lctrs/psalm-psr-container-plugin/workflows/Renew/badge.svg)](https://github.com/Lctrs/psalm-psr-container-plugin/actions)
 
-[![Mutation Score](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FLctrs%2Fpsalm-psr-container-plugin%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/Lctrs/psalm-psr-container-plugin/master)
-[![Code Coverage](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/Lctrs/psalm-psr-container-plugin)
 [![Type Coverage](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin/coverage.svg)](https://shepherd.dev/github/Lctrs/psalm-psr-container-plugin)
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/Lctrs/psalm-psr-container-plugin?style=flat-square)](https://packagist.org/packages/Lctrs/psalm-psr-container-plugin)
@@ -24,7 +22,7 @@ composer require --dev lctrs/psalm-psr-container-plugin
 Run
 
 ```
-$ vendor/bin/psalm-plugin enable lctrs/psalm-psr-container-plugin
+vendor/bin/psalm-plugin enable lctrs/psalm-psr-container-plugin
 ```
 
 to enable the plugin.
