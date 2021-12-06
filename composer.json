@@ -1,7 +1,8 @@
 {
   "name": "lctrs/psalm-psr-container-plugin",
-  "type": "psalm-plugin",
   "description": "Let Psalm understand better psr11 containers",
+  "license": "MIT",
+  "type": "psalm-plugin",
   "keywords": [
     "php",
     "code",
@@ -12,14 +13,17 @@
     "psalm",
     "psalm-plugin"
   ],
-  "homepage": "https://github.com/Lctrs/psalm-psr-container-plugin",
-  "license": "MIT",
   "authors": [
     {
       "name": "Jérôme Parmentier",
       "email": "jerome@prmntr.me"
     }
   ],
+  "homepage": "https://github.com/Lctrs/psalm-psr-container-plugin",
+  "support": {
+    "issues": "https://github.com/Lctrs/psalm-psr-container-plugin/issues",
+    "source": "https://github.com/Lctrs/psalm-psr-container-plugin"
+  },
   "require": {
     "php": "^7.3.0 || >=8.0.0 <8.2.0",
     "ext-simplexml": "*",
@@ -33,7 +37,7 @@
     "codeception/module-cli": "^1.1.1",
     "codeception/module-filesystem": "^1.0.3",
     "doctrine/coding-standard": "^9.0.0",
-    "ergebnis/composer-normalize": "^2.16.0",
+    "ergebnis/composer-normalize": "^2.17.0",
     "ergebnis/license": "^1.1.0",
     "phpstan/extension-installer": "^1.1.0",
     "phpstan/phpstan": "^0.12.99",
@@ -44,15 +48,6 @@
     "psalm/plugin-phpunit": "^0.16.1",
     "symfony/yaml": "^5.4.0",
     "weirdan/codeception-psalm-module": "^0.13.1"
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
-  "extra": {
-    "psalm": {
-      "pluginClass": "Lctrs\\PsalmPsrContainerPlugin\\Plugin"
-    }
   },
   "autoload": {
     "psr-4": {
@@ -65,8 +60,13 @@
       "Lctrs\\PsalmPsrContainerPlugin\\Test\\Unit\\": "test/Unit/"
     }
   },
-  "support": {
-    "issues": "https://github.com/Lctrs/psalm-psr-container-plugin/issues",
-    "source": "https://github.com/Lctrs/psalm-psr-container-plugin"
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "extra": {
+    "psalm": {
+      "pluginClass": "Lctrs\\PsalmPsrContainerPlugin\\Plugin"
+    }
   }
 }
