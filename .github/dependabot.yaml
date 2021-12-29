@@ -19,6 +19,8 @@ updates:
       include: "scope"
       prefix: "composer"
     directory: "/"
+    ignore:
+      - dependency-name: "psr/container"
     labels:
       - "dependency"
     open-pull-requests-limit: 10

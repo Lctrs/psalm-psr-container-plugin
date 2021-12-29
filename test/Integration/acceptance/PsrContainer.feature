@@ -96,12 +96,12 @@ Feature: PsrContainer
       """
       class MyContainer implements ContainerInterface
       {
-        public function get($id)
+        public function get(string $id)
         {
           return new \stdClass();
         }
 
-        public function has($id)
+        public function has(string $id): bool
         {
           return true;
         }
