@@ -4,19 +4,19 @@ dependencies="${COMPOSER_INSTALL_DEPENDENCIES}"
 working_directory="${COMPOSER_WORKING_DIRECTORY}"
 
 if [[ ${dependencies} == "lowest" ]]; then
-  composer update --no-interaction --no-progress --prefer-lowest --working-dir="${working_directory}"
+  composer update --ansi --no-interaction --no-progress --prefer-lowest --working-dir="${working_directory}"
 
   exit $?
 fi
 
 if [[ ${dependencies} == "locked" ]]; then
-  composer install --no-interaction --no-progress --working-dir="${working_directory}"
+  composer install --ansi --no-interaction --no-progress --working-dir="${working_directory}"
 
   exit $?
 fi
 
 if [[ ${dependencies} == "highest" ]]; then
-  composer update --no-interaction --no-progress --working-dir="${working_directory}"
+  composer update --ansi --no-interaction --no-progress --working-dir="${working_directory}"
 
   exit $?
 fi
