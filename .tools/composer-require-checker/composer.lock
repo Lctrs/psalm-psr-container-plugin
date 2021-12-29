@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97af1ed5b8b2c6f70860c3fda64a36c9",
+    "content-hash": "f0cf63b5d61313b90f3395ba0fd460c9",
     "packages": [
         {
             "name": "maglnet/composer-require-checker",
@@ -1178,7 +1178,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4.0 || ^8.0.0"
+        "php": "^8.0.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
