@@ -10,6 +10,7 @@ use Psalm\Plugin\EventHandler\AfterMethodCallAnalysisInterface;
 use Psalm\Plugin\EventHandler\Event\AfterMethodCallAnalysisEvent;
 use Psalm\Type\Atomic\TClassString;
 use Psalm\Type\Atomic\TLiteralClassString;
+use Psalm\Type\Atomic\TLiteralString;
 use Psalm\Type\Atomic\TNamedObject;
 use Psalm\Type\Atomic\TTemplateParam;
 use Psalm\Type\Atomic\TTemplateParamClass;
@@ -37,9 +38,11 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
             return;
         }
 
+        $codebase = $event->getCodebase();
+
         if (
             $className !== ContainerInterface::class
-            && ! $event->getCodebase()->classImplements($className, ContainerInterface::class)
+            && ! $codebase->classImplements($className, ContainerInterface::class)
         ) {
             return;
         }
@@ -57,6 +60,15 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
         $returnTypeCandidates = [];
         foreach ($type->getAtomicTypes() as $atomicType) {
             if ($atomicType instanceof TLiteralClassString) {
+                $returnTypeCandidates[] = new TNamedObject($atomicType->value);
+
+                continue;
+            }
+
+            if (
+                $atomicType instanceof TLiteralString
+                && $codebase->classOrInterfaceExists($atomicType->value)
+            ) {
                 $returnTypeCandidates[] = new TNamedObject($atomicType->value);
 
                 continue;

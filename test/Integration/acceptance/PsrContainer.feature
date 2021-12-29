@@ -54,6 +54,11 @@ Feature: PsrContainer
           return $this->container->get($class);
         }
 
+        public function literalString() : Bar
+        {
+          return $this->container->get('Foo\Bar');
+        }
+
         public function classConstFetch() : Bar
         {
           return $this->container->get(Bar::class);
