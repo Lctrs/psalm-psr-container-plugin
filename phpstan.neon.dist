@@ -7,6 +7,6 @@ parameters:
 		- src/
 		- test/
 		- update-license.php
-	excludes_analyse:
+	excludePaths:
 		- test/Integration/*
 	tmpDir: .build/phpstan/
