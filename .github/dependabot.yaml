@@ -15,7 +15,11 @@ updates:
       interval: "daily"
     versioning-strategy: "increase"
 
-  - commit-message:
+  - allow:
+      - dependency-name: "slevomat/coding-standard"
+      - dependency-name: "squizlabs/php_codesniffer"
+      - dependency-type: "direct"
+    commit-message:
       include: "scope"
       prefix: "composer"
     directory: "/"
