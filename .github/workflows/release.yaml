@@ -22,13 +22,17 @@ jobs:
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
-            const repository = context.repo;
+            try {
+              const response = await github.rest.repos.generateReleaseNotes({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_name: process.env.RELEASE_TAG,
+              });
+            } catch (error) {
+              core.setFailed(error.message);
 
-            const response = await github.rest.repos.generateReleaseNotes({
-              owner: repository.owner,
-              repo: repository.repo,
-              tag_name: process.env.RELEASE_TAG,
-            });
+              return;
+            }
 
             core.exportVariable("RELEASE_BODY", response.data.body);
 
@@ -37,14 +41,16 @@ jobs:
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
-            const repository = context.repo;
-
-            await github.rest.repos.createRelease({
-              body: process.env.RELEASE_BODY,
-              draft: false,
-              name: process.env.RELEASE_TAG,
-              owner: repository.owner,
-              prerelease: false,
-              repo: repository.repo,
-              tag_name: process.env.RELEASE_TAG,
-            });
+            try {
+              await github.rest.repos.createRelease({
+                body: process.env.RELEASE_BODY,
+                draft: false,
+                name: process.env.RELEASE_TAG,
+                owner: context.repo.owner,
+                prerelease: false,
+                repo: context.repo.repo,
+                tag_name: process.env.RELEASE_TAG,
+              });
+            } catch (error) {
+              core.setFailed(error.message);
+            }
