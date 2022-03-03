@@ -200,7 +200,7 @@ jobs:
           dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Unit/phpunit.xml.dist"
 
       - name: "Run integration tests with codeception/codeception"
         run: "vendor/bin/codecept run --config=codeception.dist.yml --steps"
