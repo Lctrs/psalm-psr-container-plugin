@@ -3,22 +3,21 @@
 version: 2
 
 updates:
-  - commit-message:
+  - allow:
+      - dependency-type: "all"
+    commit-message:
       include: "scope"
       prefix: "tools"
     directory: "/.tools/composer-require-checker"
     labels:
       - "dependency"
-    open-pull-requests-limit: 10
     package-ecosystem: "composer"
     schedule:
       interval: "daily"
     versioning-strategy: "increase"
 
   - allow:
-      - dependency-name: "slevomat/coding-standard"
-      - dependency-name: "squizlabs/php_codesniffer"
-      - dependency-type: "direct"
+      - dependency-type: "all"
     commit-message:
       include: "scope"
       prefix: "composer"
@@ -27,7 +26,6 @@ updates:
       - dependency-name: "psr/container"
     labels:
       - "dependency"
-    open-pull-requests-limit: 10
     package-ecosystem: "composer"
     schedule:
       interval: "daily"
@@ -39,7 +37,6 @@ updates:
     directory: "/"
     labels:
       - "dependency"
-    open-pull-requests-limit: 10
     package-ecosystem: "github-actions"
     schedule:
       interval: "daily"

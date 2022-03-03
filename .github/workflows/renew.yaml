@@ -6,9 +6,6 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "1 0 1 1 *"
 
-env:
-  PHP_EXTENSIONS: "mbstring"
-
 jobs:
   license:
     name: "License"
@@ -33,23 +30,15 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.7"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run update license script"
         run: "php update-license.php"

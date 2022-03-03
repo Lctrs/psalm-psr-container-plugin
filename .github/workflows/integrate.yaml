@@ -8,9 +8,6 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "master"
 
-env:
-  PHP_EXTENSIONS: "mbstring"
-
 jobs:
   coding-standards:
     name: "Coding Standards"
@@ -40,26 +37,18 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.7"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run ergebnis/composer-normalize"
         run: "composer normalize --ansi --dry-run"
@@ -98,28 +87,19 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.7"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock', '.tools/composer-require-checker/composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Install maglnet/composer-require-checker with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
           working-directory: ".tools/composer-require-checker/"
 
       - name: "Run maglnet/composer-require-checker"
@@ -146,23 +126,15 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.7"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Create cache directory for phpstan/phpstan"
         run: "mkdir -p .build/phpstan"
@@ -188,7 +160,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-psalm-"
 
       - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --diff --shepherd --show-info=false --stats --threads=4"
+        run: "vendor/bin/psalm --config=psalm.xml --output-format=github --shepherd --show-info=false --stats --threads=4"
 
   tests:
     name: "Tests"
@@ -214,29 +186,21 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.7"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ramsey/composer-install@2.1.0"
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependency-versions: "${{ matrix.dependencies }}"
 
       - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml.dist"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Unit/phpunit.xml.dist"
 
       - name: "Run integration tests with codeception/codeception"
         run: "vendor/bin/codecept run --config=codeception.dist.yml --steps"
