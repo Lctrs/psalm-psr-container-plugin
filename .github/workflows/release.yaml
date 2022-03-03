@@ -16,12 +16,19 @@ jobs:
     steps:
       - name: "Determine tag"
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
+        shell: "bash"
 
       - name: "Create release"
         uses: "actions/github-script@v5"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
+            if (!process.env.RELEASE_TAG) {
+              core.setFailed("The environment variable RELEASE_TAG is not defined.")
+
+              return;
+            }
+
             try {
               await github.rest.repos.createRelease({
                 draft: false,
