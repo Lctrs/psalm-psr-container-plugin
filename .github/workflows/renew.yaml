@@ -6,9 +6,6 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "1 0 1 1 *"
 
-env:
-  PHP_EXTENSIONS: "mbstring"
-
 jobs:
   license:
     name: "License"
@@ -33,7 +30,6 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"

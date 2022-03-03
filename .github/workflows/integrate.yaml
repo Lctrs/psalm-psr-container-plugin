@@ -8,9 +8,6 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "master"
 
-env:
-  PHP_EXTENSIONS: "mbstring"
-
 jobs:
   coding-standards:
     name: "Coding Standards"
@@ -40,7 +37,6 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Validate composer.json and composer.lock"
@@ -88,7 +84,6 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
@@ -125,7 +120,6 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
@@ -183,7 +177,6 @@ jobs:
         uses: "shivammathur/setup-php@2.17.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for phpunit/phpunit"
