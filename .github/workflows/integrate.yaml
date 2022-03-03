@@ -39,6 +39,9 @@ jobs:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --ansi --strict"
 
@@ -86,6 +89,9 @@ jobs:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ramsey/composer-install@2.1.0"
         with:
@@ -121,6 +127,9 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ramsey/composer-install@2.1.0"
@@ -178,6 +187,9 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
