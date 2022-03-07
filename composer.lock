@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e66bc6cc873e19bad107790c6768210",
+    "content-hash": "294d0965ce2fa7008271ce5ab092cf40",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2197,16 +2197,16 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "4.1.29",
+            "version": "4.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "f8dec8f2bf5347cc596aaf141753f4fb2504c17c"
+                "reference": "a035d77d070fa57fad438e07a65447aeca248c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f8dec8f2bf5347cc596aaf141753f4fb2504c17c",
-                "reference": "f8dec8f2bf5347cc596aaf141753f4fb2504c17c",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/a035d77d070fa57fad438e07a65447aeca248c45",
+                "reference": "a035d77d070fa57fad438e07a65447aeca248c45",
                 "shasum": ""
             },
             "require": {
@@ -2253,13 +2253,13 @@
                 "branch-alias": []
             },
             "autoload": {
+                "files": [
+                    "functions.php"
+                ],
                 "psr-4": {
                     "Codeception\\": "src/Codeception",
                     "Codeception\\Extension\\": "ext"
-                },
-                "files": [
-                    "functions.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2283,7 +2283,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/4.1.29"
+                "source": "https://github.com/Codeception/Codeception/tree/4.1.30"
             },
             "funding": [
                 {
@@ -2291,7 +2291,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-01-29T16:56:03+00:00"
+            "time": "2022-03-05T18:12:30+00:00"
         },
         {
             "name": "codeception/lib-asserts",
