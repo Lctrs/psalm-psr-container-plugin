@@ -32,22 +32,22 @@
     "vimeo/psalm": "^4.23.0"
   },
   "require-dev": {
-    "codeception/codeception": "^4.1.31",
-    "codeception/module-asserts": "^2.0.1",
-    "codeception/module-cli": "^1.1.1",
-    "codeception/module-filesystem": "^1.0.3",
-    "doctrine/coding-standard": "^9.0.0",
-    "ergebnis/composer-normalize": "^2.25.2",
-    "ergebnis/license": "^1.2.0",
-    "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "^1.6.3",
-    "phpstan/phpstan-deprecation-rules": "^1.0.0",
-    "phpstan/phpstan-phpunit": "^1.1.1",
-    "phpstan/phpstan-strict-rules": "^1.2.1",
-    "phpunit/phpunit": "^9.5.20",
-    "psalm/plugin-phpunit": "^0.16.1",
-    "symfony/yaml": "^5.4.3",
-    "weirdan/codeception-psalm-module": "^0.13.1"
+    "codeception/codeception": "4.1.31",
+    "codeception/module-asserts": "2.0.1",
+    "codeception/module-cli": "1.1.1",
+    "codeception/module-filesystem": "1.0.3",
+    "doctrine/coding-standard": "9.0.0",
+    "ergebnis/composer-normalize": "2.25.2",
+    "ergebnis/license": "1.2.0",
+    "phpstan/extension-installer": "1.1.0",
+    "phpstan/phpstan": "1.6.3",
+    "phpstan/phpstan-deprecation-rules": "1.0.0",
+    "phpstan/phpstan-phpunit": "1.1.1",
+    "phpstan/phpstan-strict-rules": "1.2.1",
+    "phpunit/phpunit": "9.5.20",
+    "psalm/plugin-phpunit": "0.16.1",
+    "symfony/yaml": "5.4.3",
+    "weirdan/codeception-psalm-module": "0.13.1"
   },
   "autoload": {
     "psr-4": {
