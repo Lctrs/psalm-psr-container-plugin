@@ -40,7 +40,7 @@
     "ergebnis/composer-normalize": "2.28.3",
     "ergebnis/license": "2.0.0",
     "phpstan/extension-installer": "1.1.0",
-    "phpstan/phpstan": "1.8.8",
+    "phpstan/phpstan": "1.8.9",
     "phpstan/phpstan-deprecation-rules": "1.0.0",
     "phpstan/phpstan-phpunit": "1.1.1",
     "phpstan/phpstan-strict-rules": "1.4.4",
