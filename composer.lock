@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff414b4d01d0b77f90e37256ee305275",
+    "content-hash": "e11452b7e5ce432d13b09a9d064a53c8",
     "packages": [
         {
             "name": "amphp/amp",
@@ -5957,30 +5957,31 @@
         },
         {
             "name": "weirdan/codeception-psalm-module",
-            "version": "0.13.1",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/codeception-psalm-module.git",
-                "reference": "ec173544ad3e956b63a7c096e09c385c79fe9c64"
+                "reference": "702afa4604cb0378606e70e2c06aecb574dd3069"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/codeception-psalm-module/zipball/ec173544ad3e956b63a7c096e09c385c79fe9c64",
-                "reference": "ec173544ad3e956b63a7c096e09c385c79fe9c64",
+                "url": "https://api.github.com/repos/psalm/codeception-psalm-module/zipball/702afa4604cb0378606e70e2c06aecb574dd3069",
+                "reference": "702afa4604cb0378606e70e2c06aecb574dd3069",
                 "shasum": ""
             },
             "require": {
-                "codeception/codeception": "^4.0.3",
-                "codeception/module-cli": "^1.0.0",
-                "codeception/module-filesystem": "^1.0.2",
+                "codeception/codeception": "^4.1.31 || ^5.0",
+                "codeception/module-cli": "^1.0.0 || ^2.0.0",
+                "codeception/module-filesystem": "^1.0.2 || ^2.0 || ^3.0",
                 "composer/semver": "^1.4 || ^2.0 || ^3.0",
                 "ext-json": "*",
-                "php": "^7.1 || ^8.0"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0",
+                "codeception/codeception": "^4.1.31 || ^5.0.0-rc3",
+                "phpunit/phpunit": "^9.5.20",
                 "squizlabs/php_codesniffer": "^3.4",
-                "vimeo/psalm": "^3.7.0 || dev-master || ^4.0.0 || dev-master"
+                "vimeo/psalm": "^4.17.0 || dev-master || ^5.0.0 || dev-master"
             },
             "type": "codeception-module",
             "autoload": {
@@ -6006,9 +6007,9 @@
             ],
             "support": {
                 "issues": "https://github.com/psalm/codeception-psalm-module/issues",
-                "source": "https://github.com/psalm/codeception-psalm-module/tree/0.13.1"
+                "source": "https://github.com/psalm/codeception-psalm-module/tree/0.14.0"
             },
-            "time": "2020-12-06T03:28:52+00:00"
+            "time": "2022-12-02T17:38:20+00:00"
         }
     ],
     "aliases": [],
