@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af3a297574e55d852cd7521a427fed41",
+    "content-hash": "2600afc83d089ce8710af3229785f769",
     "packages": [
         {
             "name": "maglnet/composer-require-checker",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maglnet/ComposerRequireChecker.git",
-                "reference": "fb2a69aa2b7307541233536f179275e99451b339"
+                "reference": "194cf647357b7077c63eee84653df2b0655b8845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/fb2a69aa2b7307541233536f179275e99451b339",
-                "reference": "fb2a69aa2b7307541233536f179275e99451b339",
+                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/194cf647357b7077c63eee84653df2b0655b8845",
+                "reference": "194cf647357b7077c63eee84653df2b0655b8845",
                 "shasum": ""
             },
             "require": {
@@ -82,9 +82,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maglnet/ComposerRequireChecker/issues",
-                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.2.0"
+                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.3.0"
             },
-            "time": "2022-08-30T09:36:29+00:00"
+            "time": "2022-12-03T23:35:20+00:00"
         },
         {
             "name": "nikic/php-parser",
