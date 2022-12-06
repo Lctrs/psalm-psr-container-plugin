@@ -45,7 +45,7 @@
     "phpstan/phpstan-phpunit": "1.2.2",
     "phpstan/phpstan-strict-rules": "1.4.4",
     "phpunit/phpunit": "9.5.26",
-    "psalm/plugin-phpunit": "0.18.3",
+    "psalm/plugin-phpunit": "0.18.4",
     "symfony/yaml": "5.4.16",
     "weirdan/codeception-psalm-module": "0.14.0"
   },
