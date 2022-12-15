@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2600afc83d089ce8710af3229785f769",
+    "content-hash": "d0155df1e777d33d33f4205d228c2a0a",
     "packages": [
         {
             "name": "maglnet/composer-require-checker",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maglnet/ComposerRequireChecker.git",
-                "reference": "194cf647357b7077c63eee84653df2b0655b8845"
+                "reference": "45a6a59b923fe6408011005260ccd94ee60dbcb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/194cf647357b7077c63eee84653df2b0655b8845",
-                "reference": "194cf647357b7077c63eee84653df2b0655b8845",
+                "url": "https://api.github.com/repos/maglnet/ComposerRequireChecker/zipball/45a6a59b923fe6408011005260ccd94ee60dbcb1",
+                "reference": "45a6a59b923fe6408011005260ccd94ee60dbcb1",
                 "shasum": ""
             },
             "require": {
@@ -36,7 +36,7 @@
                 "phing/phing": "^2.17.0",
                 "phpstan/phpstan": "^1.2.0",
                 "phpunit/phpunit": "^9.5.10",
-                "roave/infection-static-analysis-plugin": "1.13.x-dev as 1.13.0",
+                "roave/infection-static-analysis-plugin": "^1.23",
                 "vimeo/psalm": "^4.15"
             },
             "bin": [
@@ -82,9 +82,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maglnet/ComposerRequireChecker/issues",
-                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.3.0"
+                "source": "https://github.com/maglnet/ComposerRequireChecker/tree/4.4.0"
             },
-            "time": "2022-12-03T23:35:20+00:00"
+            "time": "2022-12-14T08:48:46+00:00"
         },
         {
             "name": "nikic/php-parser",
