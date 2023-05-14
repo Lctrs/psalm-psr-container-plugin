@@ -11,7 +11,7 @@ jobs:
   label:
     name: "Label"
 
-    runs-on: "ubuntu-20.04"
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: "Add labels based on branch name"

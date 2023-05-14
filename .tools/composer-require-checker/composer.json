@@ -1,6 +1,0 @@
-{
-  "require": {
-    "php": "^8.0.2",
-    "maglnet/composer-require-checker": "4.4.0"
-  }
-}
