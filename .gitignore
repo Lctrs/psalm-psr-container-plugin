@@ -1,5 +1,4 @@
 /.build/
-/.tools/*/vendor/
 /test/*/phpunit.xml
 /vendor/
 /codeception.yml

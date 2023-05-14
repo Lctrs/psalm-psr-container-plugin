@@ -10,11 +10,8 @@ coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-norm
 	vendor/bin/phpcs
 
 .PHONY: dependency-analysis
-dependency-analysis: vendor .tools/composer-require-checker/vendor ## Runs a dependency analysis with maglnet/composer-require-checker
-	.tools/composer-require-checker/vendor/bin/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
-
-.tools/composer-require-checker/vendor: .tools/composer-require-checker/composer.json .tools/composer-require-checker/composer.lock
-	composer install --no-interaction --no-progress --working-dir=".tools/composer-require-checker/"
+dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
+	vendor/bin/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
