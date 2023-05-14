@@ -13,7 +13,7 @@ use function class_exists;
 
 final class Plugin implements PluginEntryPointInterface
 {
-    public function __invoke(RegistrationInterface $registration, ?SimpleXMLElement $config = null): void
+    public function __invoke(RegistrationInterface $registration, SimpleXMLElement|null $config = null): void
     {
         class_exists(PsrContainerChecker::class, true);
         $registration->registerHooksFromClass(PsrContainerChecker::class);
