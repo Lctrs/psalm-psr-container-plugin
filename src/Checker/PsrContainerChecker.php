@@ -19,9 +19,7 @@ use Psr\Container\ContainerInterface;
 
 use function explode;
 
-/**
- * @internal
- */
+/** @internal */
 final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
 {
     public static function afterMethodCallAnalysis(AfterMethodCallAnalysisEvent $event): void
@@ -78,7 +76,7 @@ final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
                 $returnTypeCandidates[] = new TTemplateParam(
                     $atomicType->param_name,
                     new Union([$atomicType->as_type ?? new TNamedObject($atomicType->as)]),
-                    $atomicType->defining_class
+                    $atomicType->defining_class,
                 );
 
                 continue;

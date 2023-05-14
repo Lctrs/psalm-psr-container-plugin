@@ -14,10 +14,10 @@ $license = MIT::markdown(
     __DIR__ . '/LICENSE.md',
     Range::since(
         Year::fromString('2020'),
-        new DateTimeZone('UTC')
+        new DateTimeZone('UTC'),
     ),
     Holder::fromString('Jérôme Parmentier'),
-    Url::fromString('https://github.com/Lctrs/psalm-psr-container-plugin')
+    Url::fromString('https://github.com/Lctrs/psalm-psr-container-plugin'),
 );
 
 $license->save();
