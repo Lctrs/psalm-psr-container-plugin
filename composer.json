@@ -27,7 +27,7 @@
   "require": {
     "php": "~8.0.2 || ~8.1.0 || ~8.2.0",
     "ext-simplexml": "*",
-    "nikic/php-parser": "^4.15.5",
+    "nikic/php-parser": "^4.16.0",
     "psr/container": "^1.1.2 || ^2.0.2",
     "vimeo/psalm": "^5.12.0"
   },
