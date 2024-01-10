@@ -14,13 +14,15 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         checks:
-          - context: "Coding Standards (8.2, locked)"
-          - context: "Dependency Analysis (8.2, locked)"
-          - context: "Static Code Analysis (8.2, locked)"
+          - context: "Coding Standards (8.3, locked)"
+          - context: "Dependency Analysis (8.3, locked)"
+          - context: "Static Code Analysis (8.3, locked)"
           - context: "Tests (8.1, locked)"
           - context: "Tests (8.1, lowest)"
           - context: "Tests (8.2, locked)"
           - context: "Tests (8.2, lowest)"
+          - context: "Tests (8.3, locked)"
+          - context: "Tests (8.3, lowest)"
         strict: false
       restrictions: null
 
