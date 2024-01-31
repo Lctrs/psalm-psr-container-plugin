@@ -29,7 +29,7 @@
     "ext-simplexml": "*",
     "nikic/php-parser": "^4.18.0",
     "psr/container": "^1.1.2 || ^2.0.2",
-    "vimeo/psalm": "^5.20.0"
+    "vimeo/psalm": "^5.21.0"
   },
   "require-dev": {
     "codeception/codeception": "5.0.13",
