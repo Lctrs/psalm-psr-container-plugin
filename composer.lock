@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f0d97debbd5cd266926cbb00a023e94",
+    "content-hash": "1c816cdeedfe2e046360da10537ac2ef",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2136,16 +2136,16 @@
         },
         {
             "name": "codeception/codeception",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "cb80cae36a97113b09065bb1d0225d0fc7746540"
+                "reference": "fcfa1d0ec2eb7439e5290fd3ea685b5d1f90075a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/cb80cae36a97113b09065bb1d0225d0fc7746540",
-                "reference": "cb80cae36a97113b09065bb1d0225d0fc7746540",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/fcfa1d0ec2eb7439e5290fd3ea685b5d1f90075a",
+                "reference": "fcfa1d0ec2eb7439e5290fd3ea685b5d1f90075a",
                 "shasum": ""
             },
             "require": {
@@ -2240,7 +2240,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/5.1.0"
+                "source": "https://github.com/Codeception/Codeception/tree/5.1.1"
             },
             "funding": [
                 {
@@ -2248,7 +2248,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-02-04T13:50:11+00:00"
+            "time": "2024-02-23T21:42:47+00:00"
         },
         {
             "name": "codeception/lib-asserts",
