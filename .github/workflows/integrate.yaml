@@ -46,7 +46,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@2.2.0"
+        uses: "ramsey/composer-install@2.3.0"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
@@ -93,7 +93,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@2.2.0"
+        uses: "ramsey/composer-install@2.3.0"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
@@ -127,7 +127,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@2.2.0"
+        uses: "ramsey/composer-install@2.3.0"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
@@ -190,7 +190,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@2.2.0"
+        uses: "ramsey/composer-install@2.3.0"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
