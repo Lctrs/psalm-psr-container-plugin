@@ -34,7 +34,7 @@ jobs:
           strict: true
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.30.5"
+        uses: "shivammathur/setup-php@2.31.0"
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -84,7 +84,7 @@ jobs:
         uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.30.5"
+        uses: "shivammathur/setup-php@2.31.0"
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -118,7 +118,7 @@ jobs:
         uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.30.5"
+        uses: "shivammathur/setup-php@2.31.0"
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -178,7 +178,7 @@ jobs:
         uses: "actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332" # v4.1.7
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.30.5"
+        uses: "shivammathur/setup-php@2.31.0"
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
