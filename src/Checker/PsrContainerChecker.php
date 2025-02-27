@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lctrs\PsalmPsrContainerPlugin\Checker;
 
+use Override;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use Psalm\Plugin\EventHandler\AfterMethodCallAnalysisInterface;
@@ -22,6 +23,7 @@ use function explode;
 /** @internal */
 final class PsrContainerChecker implements AfterMethodCallAnalysisInterface
 {
+    #[Override]
     public static function afterMethodCallAnalysis(AfterMethodCallAnalysisEvent $event): void
     {
         $expr = $event->getExpr();
