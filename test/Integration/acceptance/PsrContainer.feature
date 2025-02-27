@@ -29,6 +29,7 @@ Feature: PsrContainer
         public const FQCN = self::class;
         public const BAR = 'bar';
 
+        /** @psalm-suppress PossiblyUnusedMethod it's used in the tests */
         public function bar() : void {}
       }
 
@@ -37,6 +38,7 @@ Feature: PsrContainer
   Scenario: Asserting psalm recognizes return type of service got via 'ContainerInterface::get()'
     Given I have the following code
       """
+      /** @psalm-suppress UnusedClass it's used in the tests */
       class Foo
       {
         /** @var ContainerInterface */
@@ -96,17 +98,20 @@ Feature: PsrContainer
       """
       class MyContainer implements ContainerInterface
       {
+        #[\Override]
         public function get(string $id)
         {
           return new \stdClass();
         }
 
+        #[\Override]
         public function has(string $id): bool
         {
           return true;
         }
       }
 
+      /** @psalm-suppress UnusedClass it's used in the tests */
       class Foo
       {
         /** @var MyContainer */
