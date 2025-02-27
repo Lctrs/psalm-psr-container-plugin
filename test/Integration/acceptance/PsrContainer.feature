@@ -7,7 +7,7 @@ Feature: PsrContainer
     Given I have the following config
       """
       <?xml version="1.0"?>
-      <psalm errorLevel="3">
+      <psalm errorLevel="3" findUnusedCode="false">
         <projectFiles>
           <directory name="."/>
         </projectFiles>
@@ -96,11 +96,13 @@ Feature: PsrContainer
       """
       class MyContainer implements ContainerInterface
       {
+        #[\Override]
         public function get(string $id)
         {
           return new \stdClass();
         }
 
+        #[\Override]
         public function has(string $id): bool
         {
           return true;
