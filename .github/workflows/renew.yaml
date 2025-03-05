@@ -36,7 +36,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@3.0.0"
+        uses: "ramsey/composer-install@3.1.0"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
