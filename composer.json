@@ -42,11 +42,11 @@
     "ergebnis/license": "2.6.0",
     "maglnet/composer-require-checker": "4.16.1",
     "phpstan/extension-installer": "1.4.3",
-    "phpstan/phpstan": "2.1.9",
+    "phpstan/phpstan": "2.1.10",
     "phpstan/phpstan-deprecation-rules": "2.0.1",
     "phpstan/phpstan-phpunit": "2.0.4",
     "phpstan/phpstan-strict-rules": "2.0.4",
-    "phpunit/phpunit": "11.5.14",
+    "phpunit/phpunit": "11.5.15",
     "psalm/plugin-phpunit": "0.19.3",
     "weirdan/codeception-psalm-module": "0.14.0"
   },
