@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33f0e24c07bd9b4b89df2f0b972d2da3",
+    "content-hash": "e6566b38559a62d22a4e1818488ae7be",
     "packages": [
         {
             "name": "amphp/amp",
@@ -5522,16 +5522,16 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "0.19.4",
+            "version": "0.19.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-phpunit.git",
-                "reference": "7a4faccda3d93f50b689d810f927b51cf655fe9a"
+                "reference": "143f9d5e049fffcdbc0da3fbb99f6149f9d3e2dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/7a4faccda3d93f50b689d810f927b51cf655fe9a",
-                "reference": "7a4faccda3d93f50b689d810f927b51cf655fe9a",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/143f9d5e049fffcdbc0da3fbb99f6149f9d3e2dc",
+                "reference": "143f9d5e049fffcdbc0da3fbb99f6149f9d3e2dc",
                 "shasum": ""
             },
             "require": {
@@ -5574,9 +5574,9 @@
             "description": "Psalm plugin for PHPUnit",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-phpunit/issues",
-                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/0.19.4"
+                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/0.19.5"
             },
-            "time": "2025-03-31T11:07:16+00:00"
+            "time": "2025-03-31T18:49:55+00:00"
         },
         {
             "name": "psr/event-dispatcher",
