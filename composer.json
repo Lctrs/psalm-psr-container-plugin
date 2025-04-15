@@ -38,7 +38,7 @@
     "codeception/module-cli": "2.0.1",
     "codeception/module-filesystem": "3.0.1",
     "doctrine/coding-standard": "13.0.0",
-    "ergebnis/composer-normalize": "2.46.0",
+    "ergebnis/composer-normalize": "2.47.0",
     "ergebnis/license": "2.6.0",
     "maglnet/composer-require-checker": "4.16.1",
     "phpstan/extension-installer": "1.4.3",
