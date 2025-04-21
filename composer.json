@@ -30,7 +30,7 @@
     "nikic/php-parser": "^5.4.0",
     "psr/container": "^1.1.2 || ^2.0.2",
     "symfony/polyfill-php84": "^1.31.0",
-    "vimeo/psalm": "^6.10.0"
+    "vimeo/psalm": "^6.10.1"
   },
   "require-dev": {
     "codeception/codeception": "5.2.1",
