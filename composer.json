@@ -34,7 +34,7 @@
   },
   "require-dev": {
     "codeception/codeception": "5.3.0",
-    "codeception/module-asserts": "3.1.0",
+    "codeception/module-asserts": "3.2.0",
     "codeception/module-cli": "2.0.1",
     "codeception/module-filesystem": "3.0.1",
     "doctrine/coding-standard": "13.0.0",
