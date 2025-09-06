@@ -19,7 +19,7 @@ jobs:
         shell: "bash"
 
       - name: "Create release"
-        uses: "actions/github-script@v7"
+        uses: "actions/github-script@v8"
         with:
           github-token: "${{ secrets.LCTRS_BOT_TOKEN }}"
           script: |
