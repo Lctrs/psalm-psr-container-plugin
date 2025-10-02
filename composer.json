@@ -37,7 +37,7 @@
     "codeception/module-asserts": "3.2.0",
     "codeception/module-cli": "2.0.1",
     "codeception/module-filesystem": "3.0.1",
-    "doctrine/coding-standard": "13.0.1",
+    "doctrine/coding-standard": "14.0.0",
     "ergebnis/composer-normalize": "2.48.2",
     "ergebnis/license": "2.7.0",
     "maglnet/composer-require-checker": "4.16.1",
