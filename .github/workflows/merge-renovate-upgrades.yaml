@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: "Auto-Merge"
         if: "${{ github.event.workflow_run.conclusion == 'success' }}"
-        uses: "ridedott/merge-me-action@v2.10.137"
+        uses: "ridedott/merge-me-action@v2.10.142"
         with:
           GITHUB_LOGIN: "renovate"
           GITHUB_TOKEN: "${{ secrets.LCTRS_BOT_TOKEN }}"
