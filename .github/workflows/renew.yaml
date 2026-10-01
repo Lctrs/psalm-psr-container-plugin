@@ -22,12 +22,12 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3" # v6.0.0
+        uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803" # v6.1.0
         with:
           token: "${{ secrets.LCTRS_BOT_TOKEN }}"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.35.5"
+        uses: "shivammathur/setup-php@2.37.2"
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -36,7 +36,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ramsey/composer-install@3.1.1"
+        uses: "ramsey/composer-install@3.2.1"
         with:
           dependency-versions: "${{ matrix.dependencies }}"
 
@@ -44,7 +44,7 @@ jobs:
         run: "php update-license.php"
 
       - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v7.0.0"
+        uses: "stefanzweifel/git-auto-commit-action@v7.2.0"
         with:
           commit_author: "lctrs-bot <bot@prmntr.me>"
           commit_message: "license: update year"
